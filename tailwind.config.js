@@ -5,6 +5,10 @@ module.exports = {
     fontFamily: {
       display: ['Roboto', 'ui-sans-serif']
     },
+    backgroundColor: (theme) => ({
+      ...theme('colors'),
+      dark: '#020203'
+    }),
     extend: {}
   },
   variants: {
