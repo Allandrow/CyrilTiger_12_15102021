@@ -1,12 +1,10 @@
-import { useState } from 'react'
+import MainLayout from './layout/mainLayout'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <>
+      <MainLayout />
+    </>
   )
 }
 
