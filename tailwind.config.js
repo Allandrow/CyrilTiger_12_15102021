@@ -5,11 +5,9 @@ module.exports = {
     fontFamily: {
       display: ['Roboto', 'ui-sans-serif']
     },
-    backgroundColor: (theme) => ({
-      ...theme('colors'),
-      dark: '#020203'
-    }),
-    extend: {}
+    extend: {
+      backgroundColor: {dark: '#020203'}
+    }
   },
   variants: {
     extend: {}
