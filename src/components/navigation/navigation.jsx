@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Navigation = () => {
   return (
     <nav className="text-white text-2xl font-medium flex-1">

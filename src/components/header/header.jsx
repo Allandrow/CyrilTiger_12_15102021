@@ -1,3 +1,4 @@
+import React from 'react'
 import Navigation from '../navigation/navigation'
 import logo from './logo.svg'
 

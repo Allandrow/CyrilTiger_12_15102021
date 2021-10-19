@@ -1,6 +1,7 @@
+import React from 'react'
 import MainLayout from './layout/mainLayout'
 
-function App() {
+function App () {
   return (
     <>
       <MainLayout />
