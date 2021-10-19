@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="font-display">
+    <div className="font-display flex flex-col h-screen">
       <Header />
       {children}
     </div>
@@ -12,7 +12,7 @@ const MainLayout = ({ children }) => {
 }
 
 MainLayout.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element
 }
 
 export default MainLayout

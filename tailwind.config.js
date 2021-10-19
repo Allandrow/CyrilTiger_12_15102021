@@ -12,5 +12,14 @@ module.exports = {
   variants: {
     extend: {}
   },
-  plugins: []
+  plugins: [
+    ({ addComponents }) => {
+      addComponents({
+        '.writing-vert': {
+          writingMode: 'vertical-rl',
+          textOrientation: 'mixed'
+        }
+      })
+    }
+  ]
 }

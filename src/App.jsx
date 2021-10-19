@@ -1,12 +1,8 @@
 import React from 'react'
-import MainLayout from './layout/mainLayout'
+import Profil from './page/profil/profil'
 
-function App () {
-  return (
-    <>
-      <MainLayout />
-    </>
-  )
+const App = () => {
+  return <Profil />
 }
 
 export default App
