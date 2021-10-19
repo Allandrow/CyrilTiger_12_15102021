@@ -14,7 +14,7 @@ const Sidebar = () => {
         <SidebarIcon icon={BikeIcon} altText={'Cyclisme'} />
         <SidebarIcon icon={FitIcon} altText={'Musculation'} />
       </ul>
-      <span className="text-white writing-vert transform rotate-180">Copyright, SportSee 2020</span>
+      <span className="text-white writing-vert transform rotate-180 text-xs font-medium">Copyright, SportSee 2020</span>
     </aside>
   )
 }
