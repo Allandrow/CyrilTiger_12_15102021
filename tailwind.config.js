@@ -6,7 +6,7 @@ module.exports = {
       display: ['Roboto', 'ui-sans-serif']
     },
     extend: {
-      backgroundColor: {dark: '#020203'}
+      backgroundColor: { dark: '#020203' }
     }
   },
   variants: {
