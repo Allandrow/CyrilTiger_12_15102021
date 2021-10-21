@@ -14,24 +14,24 @@ const Template = (args) => <SidebarIcon {...args} />
 
 export const Zen = Template.bind({})
 Zen.args = {
-  icon: ZenIcon,
+  url: ZenIcon,
   altText: 'Méditation'
 }
 
 export const Swim = Template.bind({})
 Swim.args = {
-  icon: SwimIcon,
+  url: SwimIcon,
   altText: 'Natation'
 }
 
 export const Bike = Template.bind({})
 Bike.args = {
-  icon: BikeIcon,
+  url: BikeIcon,
   altText: 'Cyclisme'
 }
 
 export const Fit = Template.bind({})
 Fit.args = {
-  icon: FitIcon,
+  url: FitIcon,
   altText: 'Musculation'
 }
