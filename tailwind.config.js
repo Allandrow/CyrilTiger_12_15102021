@@ -7,7 +7,9 @@ module.exports = {
     },
     extend: {
       backgroundColor: { dark: '#020203' },
-      textColor: { primary: '#FF0101' }
+      textColor: { primary: '#FF0101' },
+      width: { icon: '60px' },
+      height: { icon: '60px' }
     }
   },
   variants: {
