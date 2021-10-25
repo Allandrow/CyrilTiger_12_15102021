@@ -6,6 +6,9 @@ export default {
   title: 'Sportsee/Dashboard/Headline'
 }
 
-const Template = () => <Headline />
+const Template = (args) => <Headline {...args} />
 
 export const Default = Template.bind({})
+Default.args = {
+  name: 'Cyril'
+}
