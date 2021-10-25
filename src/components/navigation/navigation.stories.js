@@ -3,10 +3,12 @@ import Navigation from './navigation'
 
 export default {
   component: Navigation,
-  title: 'SportSee/components/Navigation',
+  title: 'SportSee/Header/Navigation',
   decorators: [
     (Story) => (
-      <div style={{ backgroundColor: '#020203' }}><Story /></div>
+      <div style={{ backgroundColor: '#020203' }}>
+        <Story />
+      </div>
     )
   ]
 }

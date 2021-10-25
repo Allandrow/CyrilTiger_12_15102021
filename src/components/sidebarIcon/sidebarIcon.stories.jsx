@@ -6,7 +6,7 @@ import FitIcon from '../sidebar/fit.svg'
 import SwimIcon from '../sidebar/swim.svg'
 
 export default {
-  title: 'SportSee/components/SidebarIcon',
+  title: 'SportSee/Sidebar/SidebarIcon',
   component: SidebarIcon
 }
 

@@ -3,7 +3,7 @@ import Header from './header'
 
 export default {
   component: Header,
-  title: 'SportSee/components/Header'
+  title: 'SportSee/Header'
 }
 
 const Template = () => <Header />

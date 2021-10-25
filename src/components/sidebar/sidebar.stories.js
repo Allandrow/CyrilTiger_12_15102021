@@ -3,7 +3,7 @@ import Sidebar from './sidebar'
 
 export default {
   component: Sidebar,
-  title: 'SportSee/components/Sidebar'
+  title: 'SportSee/Sidebar'
 }
 
 const Template = () => <Sidebar />
