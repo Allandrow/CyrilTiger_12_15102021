@@ -6,6 +6,10 @@ export default {
   title: 'SportSee/Sidebar'
 }
 
-const Template = () => <Sidebar />
+const Template = () => (
+  <div style={{ height: '1000px' }}>
+    <Sidebar />
+  </div>
+)
 
 export const Default = Template.bind({})
