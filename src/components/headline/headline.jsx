@@ -1,12 +1,13 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import { getUserName } from '../../services'
 
-/**
- * Create a headline with user name
- * @param {string} name user name
- */
+const Headline = () => {
+  const [name, setName] = useState(null)
 
-const Headline = ({ name }) => {
+  useEffect(() => {
+    getUserName(setName)
+  }, [])
+
   return (
     <div className="flex gap-10 flex-col">
       <h2 className="text-5xl font-medium">
@@ -17,10 +18,6 @@ const Headline = ({ name }) => {
       </p>
     </div>
   )
-}
-
-Headline.propTypes = {
-  name: PropTypes.string.isRequired
 }
 
 export default Headline
