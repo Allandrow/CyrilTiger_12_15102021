@@ -20,3 +20,12 @@ export const getKeyData = (setData) => {
     })
     .catch((err) => console.error(err))
 }
+
+export const getUserScore = (setData) => {
+  axios
+    .get(userInfosURL)
+    .then((res) => {
+      setData(res.data.todayScore)
+    })
+    .catch((err) => console.error(err))
+}
