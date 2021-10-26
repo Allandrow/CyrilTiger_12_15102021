@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getUserName } from '../../services'
+import Headline from '../headline/headline'
 
 const Dashboard = () => {
-  return <h2>Dashboard</h2>
+  const [name, setName] = useState(null)
+
+  useEffect(() => {
+    getUserName(setName)
+  })
+
+  return (
+    <div>
+      <Headline name={name} />
+    </div>
+  )
 }
 
 export default Dashboard
