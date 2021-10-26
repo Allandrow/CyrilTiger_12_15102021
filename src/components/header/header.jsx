@@ -4,7 +4,7 @@ import logo from './logo.svg'
 
 const Header = () => {
   return (
-    <header className="bg-dark flex justify-between gap-36 items-center p-5">
+    <header className="bg-dark flex justify-between gap-36 items-center p-5 shadow-lg">
       <h1>
         <img src={logo} alt="SportSee" />
       </h1>
