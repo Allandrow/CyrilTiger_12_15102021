@@ -13,6 +13,7 @@ import PropTypes from 'prop-types'
 
 const KeyData = ({ value, type }) => {
   const { icon, text, background, unit } = dataTypes[type]
+  const formatedValue = new Intl.NumberFormat('en-GB').format(value)
 
   return (
     <div className="bg-gray-50 p-8 rounded-md flex gap-6 w-64">
@@ -22,7 +23,7 @@ const KeyData = ({ value, type }) => {
         <img src={icon} alt={text} />
       </div>
       <div className="flex flex-col justify-center gap-2">
-        <strong className="font-bold text-xl">{`${value}${unit}`}</strong>
+        <strong className="font-bold text-xl">{`${formatedValue}${unit}`}</strong>
         <span className="text-gray-500 text-sm">{text}</span>
       </div>
     </div>
