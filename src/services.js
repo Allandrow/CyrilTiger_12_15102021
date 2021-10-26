@@ -3,20 +3,20 @@ import axios from 'axios'
 
 const userInfosURL = '../src/data/userInfos.json'
 
-export const getUserName = (cb) => {
+export const getUserName = (setData) => {
   axios
     .get(userInfosURL)
     .then((res) => {
-      cb(res.data.userInfos.firstName)
+      setData(res.data.userInfos.firstName)
     })
     .catch((err) => console.error(err))
 }
 
-export const getKeyData = (cb) => {
+export const getKeyData = (setData) => {
   axios
     .get(userInfosURL)
     .then((res) => {
-      cb(res.data.keyData)
+      setData(res.data.keyData)
     })
     .catch((err) => console.error(err))
 }
