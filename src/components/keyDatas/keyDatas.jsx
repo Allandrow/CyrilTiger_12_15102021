@@ -17,7 +17,7 @@ const KeyDatas = ({
   lipidCount
 }) => {
   return (
-    <div className='flex flex-col justify-between'>
+    <div className='flex flex-col justify-between h-full'>
       <KeyData value={calorieCount} type="calorieCount" />
       <KeyData value={proteinCount} type="proteinCount" />
       <KeyData value={carbohydrateCount} type="carbohydrateCount" />
