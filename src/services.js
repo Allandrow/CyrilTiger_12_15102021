@@ -4,7 +4,7 @@ import axios from 'axios'
 const userInfosURL = '../src/data/userInfos.json'
 const userActivityURL = '../src/data/userActivity.json'
 const userAverageSessionURL = '../src/data/userAverageSession.json'
-// const userPerformanceURL = '../src/data/userPerformance.json'
+const userPerformanceURL = '../src/data/userPerformance.json'
 
 // TODO : HANDLE ERRORS WITH STATE MANAGEMENT
 
@@ -45,5 +45,12 @@ export const getUserAverageSessions = (setData) => {
   axios
     .get(userAverageSessionURL)
     .then((res) => setData(res.data.sessions))
+    .catch((err) => console.error(err))
+}
+
+export const getUserPerformance = (setData) => {
+  axios
+    .get(userPerformanceURL)
+    .then((res) => setData(res.data))
     .catch((err) => console.error(err))
 }
