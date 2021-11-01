@@ -6,9 +6,9 @@ import DailyScore from '../dailyScore/dailyScore'
 
 const Charts = () => {
   return (
-    <div className="flex-1">
+    <div className="flex-1 gap-8 flex flex-col">
       <Histogram />
-      <div className='flex'>
+      <div className="flex gap-8">
         <AverageChart />
         <Performance />
         <DailyScore />

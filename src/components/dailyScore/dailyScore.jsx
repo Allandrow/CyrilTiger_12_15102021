@@ -12,7 +12,7 @@ const DailyScore = () => {
   if (score) makeSVG(score)
 
   return (
-    <div className="bg-gray-50 rounded-md p-8 flex flex-col">
+    <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">
       <h3 className="text-base font-medium">Score</h3>
       <div id="dailyScore"></div>
     </div>
