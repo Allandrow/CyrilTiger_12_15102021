@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getUserName } from '../../services'
 
 const Headline = () => {
-  const [name, setName] = useState(null)
+  const [name, setName] = useState('')
 
   useEffect(() => {
     getUserName(setName)

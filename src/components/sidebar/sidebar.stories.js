@@ -7,7 +7,7 @@ export default {
 }
 
 const Template = () => (
-  <div style={{ height: '1000px' }}>
+  <div style={{ height: '600px' }}>
     <Sidebar />
   </div>
 )

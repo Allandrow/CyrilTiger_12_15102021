@@ -10,7 +10,11 @@ export default {
   component: SidebarIcon
 }
 
-const Template = (args) => <SidebarIcon {...args} />
+const Template = (args) => (
+  <div style={{ backgroundColor: 'black', padding: '1rem' }}>
+    <SidebarIcon {...args} />
+  </div>
+)
 
 export const Zen = Template.bind({})
 Zen.args = {
