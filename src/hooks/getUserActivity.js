@@ -1,10 +1,10 @@
 import { httpRequest } from './httpRequest'
 
 /**
- * Hook to fetch user informations
+ * Hook to fetch user activity
  * @returns {object} loading, error, data
  */
-export const getUserInfos = () => {
-  const url = '../src/data/userInfos.json'
+export const getUserActivity = () => {
+  const url = '../src/data/userActivity.json'
   return httpRequest(url)
 }

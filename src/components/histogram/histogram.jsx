@@ -1,15 +1,23 @@
-import React, { useState, useEffect } from 'react'
-import { getUserActivity } from '../../services'
+import React from 'react'
 import * as d3 from 'd3'
+import { getUserActivity } from '../../hooks/getUserActivity'
 
 const Histogram = () => {
-  const [activity, setActivity] = useState(null)
+  const { loading, error, data } = getUserActivity()
 
-  useEffect(() => {
-    getUserActivity(setActivity)
-  }, [])
+  if (data) {
+    const activity = data.sessions
+    makeSVG(activity)
+  }
 
-  if (activity) makeSVG(activity)
+  if (loading) {
+    return <div className="bg-gray-50 rounded-md p-4">Loading</div>
+  }
+
+  if (error) {
+    return <div className="bg-gray-50 rounded-md p-4">{error}</div>
+  }
+
   return (
     <div className="bg-gray-50 rounded-md p-4">
       <div className="flex justify-between">
@@ -31,7 +39,6 @@ const Histogram = () => {
 }
 
 const makeSVG = (data) => {
-  // console.log(data)
   const width = 740
   const height = 145
   const margin = 30
