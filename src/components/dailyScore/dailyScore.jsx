@@ -1,15 +1,28 @@
-import React, { useEffect, useState } from 'react'
-import { getUserScore } from '../../services'
+import React from 'react'
 import * as d3 from 'd3'
+import { getUserInfos } from '../../hooks/getUserInfos'
 
 const DailyScore = () => {
-  const [score, setScore] = useState(null)
+  const { loading, error, data } = getUserInfos()
 
-  useEffect(() => {
-    getUserScore(setScore)
-  }, [])
-
+  const score = data ? data.todayScore : 0
   if (score) makeSVG(score)
+
+  if (loading) {
+    return (
+      <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">
+        Loading
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">
+        {error}
+      </div>
+    )
+  }
 
   return (
     <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">
