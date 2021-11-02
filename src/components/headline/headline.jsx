@@ -1,5 +1,5 @@
 import React from 'react'
-import { getUserInfos } from '../../hooks/getUserName'
+import { getUserInfos } from '../../hooks/getUserInfos'
 
 const Headline = () => {
   const { loading, error, data } = getUserInfos()

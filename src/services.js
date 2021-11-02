@@ -8,15 +8,6 @@ const userPerformanceURL = '../src/data/userPerformance.json'
 
 // TODO : HANDLE ERRORS WITH STATE MANAGEMENT
 
-export const getKeyData = (setData) => {
-  axios
-    .get(userInfosURL)
-    .then((res) => {
-      setData(res.data.keyData)
-    })
-    .catch((err) => console.error(err))
-}
-
 export const getUserScore = (setData) => {
   axios
     .get(userInfosURL)

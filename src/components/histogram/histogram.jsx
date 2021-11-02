@@ -31,7 +31,7 @@ const Histogram = () => {
 }
 
 const makeSVG = (data) => {
-  console.log(data)
+  // console.log(data)
   const width = 740
   const height = 145
   const margin = 30

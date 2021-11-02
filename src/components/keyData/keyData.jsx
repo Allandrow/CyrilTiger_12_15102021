@@ -58,8 +58,8 @@ const dataTypes = {
 }
 
 KeyData.propTypes = {
-  value: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired
+  value: PropTypes.number,
+  type: PropTypes.string
 }
 
 export default KeyData
