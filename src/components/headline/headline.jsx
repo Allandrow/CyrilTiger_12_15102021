@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import { getUserName } from '../../services'
+import React from 'react'
+import { getUserInfos } from '../../hooks/getUserName'
 
 const Headline = () => {
-  const [name, setName] = useState('')
+  const { loading, error, data } = getUserInfos()
 
-  useEffect(() => {
-    getUserName(setName)
-  }, [])
+  const name = data ? data.userInfos.firstName : 'Visiteur'
+
+  if (loading) {
+    return <div className="flex gap-10 flex-col">Loading</div>
+  }
+
+  if (error) {
+    return <div className="flex gap-10 flex-col">{error}</div>
+  }
 
   return (
     <div className="flex gap-10 flex-col">
