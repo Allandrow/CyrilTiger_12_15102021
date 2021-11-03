@@ -19,7 +19,7 @@ const Histogram = () => {
   }
 
   return (
-    <div className="bg-gray-50 rounded-md p-4">
+    <div className="bg-gray-50 rounded-md p-8">
       <div className="flex justify-between">
         <h3 className="font-medium">Activité quotidienne</h3>
         <div className="flex gap-4 font-medium text-sm text-gray-500">
@@ -58,10 +58,25 @@ const makeLayout = (container, height, width, margin) => {
 
 const makeSVG = (data) => {
   const margin = 30
-  const width = 740
+  const width = 770
   const height = 145
-  const fullWidth = width + margin * 2
+  const fullWidth = width + margin
   const fullHeight = height + margin * 2
+
+  const weight = data.map((item) => item.kilogram)
+  // const calories = data.map((item) => item.calories)
+
+  const weightMin = Math.min(...weight)
+  const weightMax = Math.max(...weight)
+  // const caloriesMin = Math.min(...calories)
+  // const caloriesMax = Math.max(...calories)
+
+  const weightScale = d3.scaleLinear()
+  // const calorieScale = d3.scaleLinear()
+
+  weightScale
+    .domain([weightMin, weightMax])
+    .range([0.9 * weightMin, 1.1 * weightMax])
 
   // svg canvas
   let svg = d3.select('#histogram svg')
