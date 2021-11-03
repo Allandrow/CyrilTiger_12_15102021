@@ -38,18 +38,49 @@ const Histogram = () => {
   )
 }
 
+const makeLine = (container, xStart, xEnd, y, dash = false) => {
+  const line = container
+    .append('line')
+    .attr('x1', xStart)
+    .attr('x2', xEnd)
+    .attr('y1', y)
+    .attr('y2', y)
+
+  if (dash) line.attr('stroke-dasharray', '4 4')
+}
+
+const makeLayout = (container, height, width, margin) => {
+  const halfHeight = height / 2 + margin
+  makeLine(container, 0, width, height + margin)
+  makeLine(container, 0, width, halfHeight, true)
+  makeLine(container, 0, width, margin, true)
+}
+
 const makeSVG = (data) => {
+  const margin = 30
   const width = 740
   const height = 145
-  const margin = 30
+  const fullWidth = width + margin * 2
+  const fullHeight = height + margin * 2
 
   // svg canvas
-  d3.select('#histogram')
+  let svg = d3.select('#histogram svg')
+  svg.remove()
+  svg = d3
+    .select('#histogram')
     .append('svg')
-    .attr('width', width + margin * 2)
-    .attr('height', height + margin * 2)
+    .attr('width', fullWidth)
+    .attr('height', fullHeight)
+
+  const layout = svg
     .append('g')
-    .attr('transform', `translate(${margin}, ${margin})`)
+    .attr('stroke', '#DEDEDE')
+    .attr('stroke-width', '1')
+
+  makeLayout(layout, height, width, margin)
 }
 
 export default Histogram
+
+// .append('g')
+// .attr('transform', `translate(${margin}, ${margin})`)
