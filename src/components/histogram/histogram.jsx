@@ -49,21 +49,50 @@ const makeLine = (container, xStart, xEnd, y, dash = false) => {
   if (dash) line.attr('stroke-dasharray', '4 4')
 }
 
-const makeLayout = (container, height, width, margin) => {
+const makeLayout = (svg, { height, width, margin }) => {
   const halfHeight = height / 2 + margin
-  makeLine(container, 0, width, height + margin)
-  makeLine(container, 0, width, halfHeight, true)
-  makeLine(container, 0, width, margin, true)
+
+  const layout = svg
+    .append('g')
+    .attr('stroke', '#DEDEDE')
+    .attr('stroke-width', '1')
+
+  makeLine(layout, 0, width, height + margin)
+  makeLine(layout, 0, width, halfHeight, true)
+  makeLine(layout, 0, width, margin, true)
+}
+
+const makeAbscissaDataPoints = (container, { height, width, margin }, data) => {
+  const dataWidth = width / 7
+  const group = container
+    .append('g')
+    .attr('transform', `translate(0, ${height + margin * 2})`)
+
+  group
+    .selectAll('text')
+    .data(data)
+    .enter()
+    .append('text')
+    .text((d) => d)
+    .attr('dx', (d, i) => {
+      return dataWidth * i + 40
+    })
 }
 
 const makeSVG = (data) => {
   const margin = 30
-  const width = 770
+  const width = 740
   const height = 145
-  const fullWidth = width + margin
+  const fullWidth = width + margin * 2
   const fullHeight = height + margin * 2
+  const sizes = {
+    height,
+    width,
+    margin
+  }
 
   const weight = data.map((item) => item.kilogram)
+  const days = data.map((item, i) => i + 1)
   // const calories = data.map((item) => item.calories)
 
   const weightMin = Math.min(...weight)
@@ -87,12 +116,8 @@ const makeSVG = (data) => {
     .attr('width', fullWidth)
     .attr('height', fullHeight)
 
-  const layout = svg
-    .append('g')
-    .attr('stroke', '#DEDEDE')
-    .attr('stroke-width', '1')
-
-  makeLayout(layout, height, width, margin)
+  makeLayout(svg, sizes)
+  makeAbscissaDataPoints(svg, sizes, days)
 }
 
 export default Histogram
