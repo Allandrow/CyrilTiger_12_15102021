@@ -62,21 +62,79 @@ const makeLayout = (svg, { height, width, margin }) => {
   makeLine(layout, 0, width, margin, true)
 }
 
-const makeAbscissaDataPoints = (container, { height, width, margin }, data) => {
-  const dataWidth = width / 7
-  const group = container
-    .append('g')
-    .attr('transform', `translate(0, ${height + margin * 2})`)
+const makeData = (svg, { height, width, margin }, data) => {
+  const blockSize = width / data.length
+  const dataGroup = svg.append('g').attr('id', 'dataBars')
 
-  group
-    .selectAll('text')
+  // weight data + scale
+  const weight = data.map((item) => item.kilogram)
+  const weightMin = Math.min(...weight)
+  const weightMax = Math.max(...weight)
+
+  // calorie data + scale
+  const calories = data.map((item) => item.calories)
+  const caloriesMin = Math.min(...calories)
+  const caloriesMax = Math.max(...calories)
+  const calorieScale = d3
+    .scaleLinear()
+    .domain([0.9 * caloriesMin, 1.1 * caloriesMax])
+    .range([145, 50])
+
+  const weightScale = d3
+    .scaleLinear()
+    .domain([0.9 * weightMin, 1.1 * weightMax])
+    .range([145, 50])
+
+  const dataBlocks = dataGroup
+    .selectAll('g')
     .data(data)
     .enter()
-    .append('text')
-    .text((d) => d)
-    .attr('dx', (d, i) => {
-      return dataWidth * i + 40
+    .append('g')
+    .attr('class', 'data')
+    .on('mouseenter', function () {
+      d3.select(this).selectAll('.hover').attr('style', 'opactity: 0.3')
     })
+    .on('mouseleave', function () {
+      d3.select(this).selectAll('.hover').attr('style', 'opacity: 0')
+    })
+
+  // data block hover rectangle
+  dataBlocks
+    .append('rect')
+    .attr('class', 'hover')
+    .attr('fill', '#DEDEDE')
+    .attr('width', blockSize)
+    .attr('height', height)
+    .attr('x', (d, i) => blockSize * i)
+    .attr('y', margin)
+    .attr('style', 'opacity: 0')
+
+  // data block abscissa information
+  dataBlocks
+    .append('text')
+    .text((d, i) => i + 1)
+    .attr('y', height + margin * 2)
+    .attr('dx', (d, i) => blockSize * i + blockSize / 2)
+
+  // weight data bars
+  dataBlocks
+    .append('rect')
+    .attr('class', 'weightBar')
+    .attr('y', (d) => height + margin - weightScale(d.kilogram))
+    .attr('x', (d, i) => blockSize * i + blockSize / 2 - 25)
+    .attr('width', 10)
+    .attr('height', (d) => weightScale(d.kilogram))
+    .attr('fill', 'black')
+
+  // calorie data bars
+  dataBlocks
+    .append('rect')
+    .attr('class', 'calorieBar')
+    .attr('y', (d) => height + margin - calorieScale(d.calories))
+    .attr('x', (d, i) => blockSize * i + blockSize / 2 + 15)
+    .attr('width', 10)
+    .attr('height', (d) => calorieScale(d.calories))
+    .attr('fill', 'red')
 }
 
 const makeSVG = (data) => {
@@ -91,22 +149,6 @@ const makeSVG = (data) => {
     margin
   }
 
-  const weight = data.map((item) => item.kilogram)
-  const days = data.map((item, i) => i + 1)
-  // const calories = data.map((item) => item.calories)
-
-  const weightMin = Math.min(...weight)
-  const weightMax = Math.max(...weight)
-  // const caloriesMin = Math.min(...calories)
-  // const caloriesMax = Math.max(...calories)
-
-  const weightScale = d3.scaleLinear()
-  // const calorieScale = d3.scaleLinear()
-
-  weightScale
-    .domain([weightMin, weightMax])
-    .range([0.9 * weightMin, 1.1 * weightMax])
-
   // svg canvas
   let svg = d3.select('#histogram svg')
   svg.remove()
@@ -117,10 +159,7 @@ const makeSVG = (data) => {
     .attr('height', fullHeight)
 
   makeLayout(svg, sizes)
-  makeAbscissaDataPoints(svg, sizes, days)
+  makeData(svg, sizes, data)
 }
 
 export default Histogram
-
-// .append('g')
-// .attr('transform', `translate(${margin}, ${margin})`)
