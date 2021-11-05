@@ -94,12 +94,12 @@ const makeData = (svg, { height, width, margin }, data) => {
   const calorieScale = d3
     .scaleLinear()
     .domain([calorieDomainMin, calorieDomainMax])
-    .range([145, 0])
+    .range([0, 145])
 
   const weightScale = d3
     .scaleLinear()
     .domain([weightDomainMin, weightDomainMax])
-    .range([145, 0])
+    .range([0, 145])
 
   const dataBlocks = dataGroup
     .selectAll('g')
@@ -108,10 +108,12 @@ const makeData = (svg, { height, width, margin }, data) => {
     .append('g')
     .attr('class', 'data')
     .on('mouseenter', function () {
-      d3.select(this).selectAll('.hover').attr('style', 'opactity: 0.3')
+      d3.select(this).selectAll('.hover').attr('style', 'opacity: 0.5')
+      d3.select(this).selectAll('.tooltip').attr('style', 'visibility:visible')
     })
     .on('mouseleave', function () {
       d3.select(this).selectAll('.hover').attr('style', 'opacity: 0')
+      d3.select(this).selectAll('.tooltip').attr('style', 'visibility:hidden')
     })
 
   // data block hover rectangle
@@ -125,6 +127,40 @@ const makeData = (svg, { height, width, margin }, data) => {
     .attr('y', margin)
     .attr('style', 'opacity: 0')
 
+  // tooltips
+  const infos = dataBlocks
+    .append('g')
+    .attr('class', 'tooltip')
+    .attr('style', 'visibility:hidden')
+
+  infos
+    .append('rect')
+    .attr('class', 'infos')
+    .attr('fill', 'red')
+    .attr('width', '60')
+    .attr('height', '50')
+    .attr('rx', '2')
+    .attr('x', (d, i) => blockSize * i + blockSize - 40)
+    .attr('y', 0)
+
+  infos
+    .append('text')
+    .text((d) => d.kilogram + 'kg')
+    .attr('fill', 'white')
+    .attr('x', (d, i) => blockSize * i + blockSize - 10)
+    .attr('y', 20)
+    .attr('style', 'font-size:0.75rem')
+    .attr('text-anchor', 'middle')
+
+  infos
+    .append('text')
+    .text((d) => d.calories + 'kCal')
+    .attr('fill', 'white')
+    .attr('x', (d, i) => blockSize * i + blockSize - 10)
+    .attr('y', 40)
+    .attr('style', 'font-size:0.75rem')
+    .attr('text-anchor', 'middle')
+
   // data block X axis information
   dataBlocks
     .append('text')
@@ -137,9 +173,10 @@ const makeData = (svg, { height, width, margin }, data) => {
   dataBlocks
     .append('rect')
     .attr('class', 'weightBar')
-    .attr('y', (d) => height + margin - weightScale(d.kilogram))
+    .attr('y', (d) => height - weightScale(d.kilogram) + margin)
     .attr('x', (d, i) => blockSize * i + blockSize / 2 - 25)
     .attr('width', 10)
+    .attr('data-weight', (d) => d.kilogram)
     .attr('height', (d) => weightScale(d.kilogram))
     .attr('fill', 'black')
 
@@ -154,7 +191,10 @@ const makeData = (svg, { height, width, margin }, data) => {
     .attr('fill', 'red')
 
   // data Y axis information
-  const yAxis = dataGroup.append('g').attr('dominant-baseline', 'middle').attr('fill', grayColor)
+  const yAxis = dataGroup
+    .append('g')
+    .attr('dominant-baseline', 'middle')
+    .attr('fill', grayColor)
   yAxis
     .append('text')
     .text(weightDomainMin)
