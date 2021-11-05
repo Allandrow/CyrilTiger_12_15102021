@@ -65,10 +65,10 @@ const makeLayout = (svg, { height, width, margin }) => {
 const makeData = (svg, { height, width, margin }, data) => {
   const blockSize = width / data.length
   const dataGroup = svg.append('g').attr('id', 'dataBars')
+  const grayColor = '#DEDEDE'
 
   // weight data + scale
   const weight = data.map((item) => item.kilogram)
-  console.table(weight)
   const weightMin = Math.min(...weight)
   const weightMax = Math.max(...weight)
 
@@ -76,6 +76,8 @@ const makeData = (svg, { height, width, margin }, data) => {
   const weightAverage = Math.floor(
     weight.reduce((a, b) => a + b) / weight.length
   )
+  const weightDomainMin = weightAverage - weightRange / 2
+  const weightDomainMax = weightAverage + weightRange / 2
 
   // calorie data + scale
   const calories = data.map((item) => item.calories)
@@ -86,15 +88,17 @@ const makeData = (svg, { height, width, margin }, data) => {
   const caloriesAverage = Math.floor(
     calories.reduce((a, b) => a + b) / calories.length
   )
+  const calorieDomainMin = caloriesAverage - caloriesRange / 2
+  const calorieDomainMax = caloriesAverage + caloriesRange / 2
 
   const calorieScale = d3
     .scaleLinear()
-    .domain([caloriesAverage - caloriesRange / 2, caloriesAverage + caloriesRange / 2])
+    .domain([calorieDomainMin, calorieDomainMax])
     .range([145, 0])
 
   const weightScale = d3
     .scaleLinear()
-    .domain([weightAverage - weightRange / 2, weightAverage + weightRange / 2])
+    .domain([weightDomainMin, weightDomainMax])
     .range([145, 0])
 
   const dataBlocks = dataGroup
@@ -114,19 +118,20 @@ const makeData = (svg, { height, width, margin }, data) => {
   dataBlocks
     .append('rect')
     .attr('class', 'hover')
-    .attr('fill', '#DEDEDE')
+    .attr('fill', grayColor)
     .attr('width', blockSize)
     .attr('height', height)
     .attr('x', (d, i) => blockSize * i)
     .attr('y', margin)
     .attr('style', 'opacity: 0')
 
-  // data block abscissa information
+  // data block X axis information
   dataBlocks
     .append('text')
     .text((d, i) => i + 1)
     .attr('y', height + margin * 2)
     .attr('dx', (d, i) => blockSize * i + blockSize / 2)
+    .attr('fill', grayColor)
 
   // weight data bars
   dataBlocks
@@ -147,6 +152,22 @@ const makeData = (svg, { height, width, margin }, data) => {
     .attr('width', 10)
     .attr('height', (d) => calorieScale(d.calories))
     .attr('fill', 'red')
+
+  // data Y axis information
+  const yAxis = dataGroup.append('g').attr('dominant-baseline', 'middle').attr('fill', grayColor)
+  yAxis
+    .append('text')
+    .text(weightDomainMin)
+    .attr('transform', `translate(${width + margin}, ${height + margin})`)
+
+  yAxis
+    .append('text')
+    .text((weightDomainMin + weightDomainMax) / 2)
+    .attr('transform', `translate(${width + margin}, ${height / 2 + margin})`)
+  yAxis
+    .append('text')
+    .text(weightDomainMax)
+    .attr('transform', `translate(${width + margin}, ${margin})`)
 }
 
 const makeSVG = (data) => {
