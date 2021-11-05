@@ -68,22 +68,34 @@ const makeData = (svg, { height, width, margin }, data) => {
 
   // weight data + scale
   const weight = data.map((item) => item.kilogram)
+  console.table(weight)
   const weightMin = Math.min(...weight)
   const weightMax = Math.max(...weight)
+
+  const weightRange = (weightMax - weightMin) * 2
+  const weightAverage = Math.floor(
+    weight.reduce((a, b) => a + b) / weight.length
+  )
 
   // calorie data + scale
   const calories = data.map((item) => item.calories)
   const caloriesMin = Math.min(...calories)
   const caloriesMax = Math.max(...calories)
+
+  const caloriesRange = (caloriesMax - caloriesMin) * 2
+  const caloriesAverage = Math.floor(
+    calories.reduce((a, b) => a + b) / calories.length
+  )
+
   const calorieScale = d3
     .scaleLinear()
-    .domain([0.9 * caloriesMin, 1.1 * caloriesMax])
-    .range([145, 50])
+    .domain([caloriesAverage - caloriesRange / 2, caloriesAverage + caloriesRange / 2])
+    .range([145, 0])
 
   const weightScale = d3
     .scaleLinear()
-    .domain([0.9 * weightMin, 1.1 * weightMax])
-    .range([145, 50])
+    .domain([weightAverage - weightRange / 2, weightAverage + weightRange / 2])
+    .range([145, 0])
 
   const dataBlocks = dataGroup
     .selectAll('g')
