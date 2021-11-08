@@ -41,8 +41,6 @@ const makeSVG = (data) => {
     .attr('width', width + margin)
     .attr('height', height)
 
-  const group = svg.append('g').attr('transform', `translate(-${margin}, 0)`)
-
   // x scale
   const xScale = d3
     .scaleLinear()
@@ -54,7 +52,51 @@ const makeSVG = (data) => {
   const yScale = d3
     .scaleLinear()
     .domain([d3.min(sessions), d3.max(sessions)])
-    .range([height - 60, 10])
+    .range([height - 60, 0])
+
+  // data blocks
+  const blocks = svg
+    .selectAll('.block')
+    .data(data)
+    .enter()
+    .append('g')
+    .attr('class', 'block')
+
+  blocks
+    .append('rect')
+    .attr('x', (d, i) => ((width + margin) / data.length) * i)
+    .attr('y', 0)
+    .attr('height', height - margin * 2)
+    .attr('width', (d) => '100%')
+    .attr('class', 'background fill-current text-red-700')
+    .attr('style', 'opacity: 0')
+
+  blocks
+    .append('rect')
+    .attr('x', (d, i) => ((width + margin) / data.length) * i)
+    .attr('y', 0)
+    .attr('height', height - margin * 2)
+    .attr('width', (d) => (width + margin) / data.length)
+    .attr('fill', 'transparent')
+    .on('mouseenter', function () {
+      d3.select(this.parentNode).selectAll('.dot').attr('fill', 'white')
+      d3.select(this.parentNode).selectAll('.background').attr('style', 'opacity:1')
+    })
+    .on('mouseleave', function () {
+      d3.select(this.parentNode).selectAll('.dot').attr('fill', 'transparent')
+      d3.select(this.parentNode).selectAll('.background').attr('style', 'opacity:0')
+    })
+
+  // data points
+  blocks
+    .append('circle')
+    .attr('class', 'dot')
+    .attr('cx', (d, i) => ((width + margin) / data.length) * i + margin)
+    .attr('cy', (d) => yScale(d.sessionLength))
+    .attr('r', 5)
+    .attr('fill', 'transparent')
+
+  const group = svg.append('g').attr('transform', `translate(-${margin}, 0)`)
 
   // line
   const line = d3
@@ -75,7 +117,7 @@ const makeSVG = (data) => {
   // x axis
   group
     .append('g')
-    .attr('transform', `translate(0, ${height - 20})`)
+    .attr('transform', `translate(0, ${height})`)
     .selectAll('text')
     .data(days)
     .enter()
@@ -84,24 +126,6 @@ const makeSVG = (data) => {
     .attr('dx', (d, i) => xScale(i))
     .attr('fill', 'white')
     .attr('text-anchor', 'middle')
-
-  // data points
-  group
-    .selectAll('.dot')
-    .data(sessions)
-    .enter()
-    .append('circle')
-    .attr('class', 'dot')
-    .attr('cx', (d, i) => xScale(i))
-    .attr('cy', (d) => yScale(d))
-    .attr('r', 5)
-    .attr('fill', 'white')
-    .on('mouseenter', function () {
-      d3.select(this).attr('fill', 'white')
-    })
-    .on('mouseleave', function () {
-      d3.select(this).attr('fill', 'transparent')
-    })
 }
 
 export default AverageChart
