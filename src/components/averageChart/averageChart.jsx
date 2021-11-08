@@ -19,7 +19,7 @@ const AverageChart = () => {
 
   return (
     <div className="flex-1 bg-primary rounded-md">
-      <h3 className="text-white opacity-70 mt-8 ml-8 leading-8 text-base font-medium">
+      <h3 className="text-white opacity-70 mt-8 ml-8 text-base font-medium">
         Durée moyenne des <br /> sessions
       </h3>
       <div id="averageSessions"></div>
@@ -28,8 +28,9 @@ const AverageChart = () => {
 }
 
 const makeSVG = (data) => {
-  const width = 260
+  const width = 230
   const height = 180
+  const margin = 15
   const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
 
   let svg = d3.select('#averageSessions svg')
@@ -37,18 +38,24 @@ const makeSVG = (data) => {
   svg = d3
     .select('#averageSessions')
     .append('svg')
-    .attr('width', width)
+    .attr('width', width + margin * 2)
     .attr('height', height)
 
+  const group = svg.append('g').attr('transform', `translate(${margin}, 0)`)
+
   // x scale
-  const xScale = d3.scaleLinear().domain([0, 6]).range([0, width])
+  const xScale = d3
+    .scaleLinear()
+    .domain([0, data.length - 1])
+    .range([0, width - margin * 2])
 
   // y scale
   const sessions = data.map((item) => item.sessionLength)
+  console.table(sessions)
   const yScale = d3
     .scaleLinear()
     .domain([d3.min(sessions), d3.max(sessions)])
-    .range([40, height - 40])
+    .range([height - 60, 10])
 
   // line
   const line = d3
@@ -58,7 +65,7 @@ const makeSVG = (data) => {
     .curve(d3.curveNatural)
 
   // path
-  svg
+  group
     .append('path')
     .datum(sessions)
     .attr('d', line)
@@ -67,7 +74,7 @@ const makeSVG = (data) => {
     .attr('stroke-width', 2)
 
   // x axis
-  svg
+  group
     .append('g')
     .attr('transform', `translate(0, ${height - 20})`)
     .selectAll('text')
@@ -75,19 +82,26 @@ const makeSVG = (data) => {
     .enter()
     .append('text')
     .text((d) => d)
-    .attr('dx', (d, i) => (width / days.length) * i + 15)
+    .attr('dx', (d, i) => (width / days.length) * i)
     .attr('fill', 'white')
 
   // data points
-  // svg
-  //   .selectAll('.dot')
-  //   .data(sessions)
-  //   .enter()
-  //   .append('circle')
-  //   .attr('class', 'dot')
-  //   .attr('cx', (d, i) => xScale(i))
-  //   .attr('cy', (d) => yScale(d))
-  //   .attr('r', 5)
+  group
+    .selectAll('.dot')
+    .data(sessions)
+    .enter()
+    .append('circle')
+    .attr('class', 'dot')
+    .attr('cx', (d, i) => xScale(i))
+    .attr('cy', (d) => yScale(d))
+    .attr('r', 5)
+    .attr('fill', 'transparent')
+    .on('mouseenter', function () {
+      d3.select(this).attr('fill', 'white')
+    })
+    .on('mouseleave', function () {
+      d3.select(this).attr('fill', 'transparent')
+    })
 }
 
 export default AverageChart
