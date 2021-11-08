@@ -28,20 +28,20 @@ const AverageChart = () => {
 }
 
 const makeSVG = (data) => {
-  const width = 230
+  const width = 245
   const height = 180
   const margin = 15
-  const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+  const days = ['', 'L', 'M', 'M', 'J', 'V', 'S', 'D', '']
 
   let svg = d3.select('#averageSessions svg')
   svg.remove()
   svg = d3
     .select('#averageSessions')
     .append('svg')
-    .attr('width', width + margin * 2)
+    .attr('width', width + margin)
     .attr('height', height)
 
-  const group = svg.append('g').attr('transform', `translate(${margin}, 0)`)
+  const group = svg.append('g').attr('transform', `translate(-${margin}, 0)`)
 
   // x scale
   const xScale = d3
@@ -50,8 +50,7 @@ const makeSVG = (data) => {
     .range([0, width - margin * 2])
 
   // y scale
-  const sessions = data.map((item) => item.sessionLength)
-  console.table(sessions)
+  const sessions = [0, ...data.map((item) => item.sessionLength), 100]
   const yScale = d3
     .scaleLinear()
     .domain([d3.min(sessions), d3.max(sessions)])
@@ -82,8 +81,9 @@ const makeSVG = (data) => {
     .enter()
     .append('text')
     .text((d) => d)
-    .attr('dx', (d, i) => (width / days.length) * i)
+    .attr('dx', (d, i) => xScale(i))
     .attr('fill', 'white')
+    .attr('text-anchor', 'middle')
 
   // data points
   group
@@ -95,7 +95,7 @@ const makeSVG = (data) => {
     .attr('cx', (d, i) => xScale(i))
     .attr('cy', (d) => yScale(d))
     .attr('r', 5)
-    .attr('fill', 'transparent')
+    .attr('fill', 'white')
     .on('mouseenter', function () {
       d3.select(this).attr('fill', 'white')
     })
