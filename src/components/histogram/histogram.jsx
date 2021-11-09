@@ -24,7 +24,7 @@ const Histogram = () => {
         <h3 className="font-medium">Activité quotidienne</h3>
         <div className="flex gap-4 font-medium text-sm text-gray-500">
           <div className="flex items-center gap-2">
-            <span className="block w-2 h-2 bg-black rounded"></span>
+            <span className="block w-2 h-2 bg-secondary rounded"></span>
             <span>Poids (kg)</span>
           </div>
           <div className="flex items-center gap-2">
@@ -172,13 +172,12 @@ const makeData = (svg, { height, width, margin }, data) => {
   // weight data bars
   dataBlocks
     .append('rect')
-    .attr('class', 'weightBar')
     .attr('y', (d) => height - weightScale(d.kilogram) + margin)
     .attr('x', (d, i) => blockSize * i + blockSize / 2 - 25)
     .attr('width', 10)
     .attr('data-weight', (d) => d.kilogram)
     .attr('height', (d) => weightScale(d.kilogram))
-    .attr('fill', 'black')
+    .attr('class', 'weightBar fill-current text-secondary')
 
   // calorie data bars
   dataBlocks
