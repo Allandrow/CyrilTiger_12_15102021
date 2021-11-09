@@ -71,6 +71,15 @@ const makeSVG = (data) => {
     .attr('class', 'background fill-current text-red-700')
     .attr('style', 'opacity: 0')
 
+  // data points
+  blocks
+    .append('circle')
+    .attr('class', 'dot')
+    .attr('cx', (d, i) => ((width + margin) / data.length) * i + margin)
+    .attr('cy', (d) => yScale(d.sessionLength))
+    .attr('r', 5)
+    .attr('fill', 'transparent')
+
   blocks
     .append('rect')
     .attr('x', (d, i) => ((width + margin) / data.length) * i)
@@ -80,21 +89,16 @@ const makeSVG = (data) => {
     .attr('fill', 'transparent')
     .on('mouseenter', function () {
       d3.select(this.parentNode).selectAll('.dot').attr('fill', 'white')
-      d3.select(this.parentNode).selectAll('.background').attr('style', 'opacity:1')
+      d3.select(this.parentNode)
+        .selectAll('.background')
+        .attr('style', 'opacity:1')
     })
     .on('mouseleave', function () {
       d3.select(this.parentNode).selectAll('.dot').attr('fill', 'transparent')
-      d3.select(this.parentNode).selectAll('.background').attr('style', 'opacity:0')
+      d3.select(this.parentNode)
+        .selectAll('.background')
+        .attr('style', 'opacity:0')
     })
-
-  // data points
-  blocks
-    .append('circle')
-    .attr('class', 'dot')
-    .attr('cx', (d, i) => ((width + margin) / data.length) * i + margin)
-    .attr('cy', (d) => yScale(d.sessionLength))
-    .attr('r', 5)
-    .attr('fill', 'transparent')
 
   const group = svg.append('g').attr('transform', `translate(-${margin}, 0)`)
 
