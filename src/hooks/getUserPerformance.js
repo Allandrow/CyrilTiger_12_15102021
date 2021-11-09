@@ -1,10 +1,10 @@
 import { httpRequest } from './httpRequest'
+import { config } from '../../constants'
 
 /**
  * Hook to fetch user performance
  * @returns {object} loading, error, data
  */
 export const getUserPerformance = () => {
-  const url = '../src/data/userPerformance.json'
-  return httpRequest(url)
+  return httpRequest(config.url.API_URL_PERFORMANCE)
 }
