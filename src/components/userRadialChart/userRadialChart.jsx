@@ -11,8 +11,6 @@ const userRadialChart = ({ score }) => {
   return <div id="dailyScore"></div>
 }
 
-export default userRadialChart
-
 const makeCircle = (container, center, radius) => {
   container
     .append('circle')
@@ -89,3 +87,5 @@ const makeSVG = (score) => {
 userRadialChart.propTypes = {
   score: PropTypes.number.isRequired
 }
+
+export default userRadialChart
