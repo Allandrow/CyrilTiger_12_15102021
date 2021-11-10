@@ -8,6 +8,7 @@ import {
   ResponsiveContainer
 } from 'recharts'
 import { getUserPerformance } from '../../hooks/getUserPerformance'
+import Loader from '../loader/loader'
 
 const Performance = () => {
   const { loading, error, data } = getUserPerformance()
@@ -23,7 +24,7 @@ const Performance = () => {
   }
 
   if (loading) {
-    return <div className="flex-1">Loading</div>
+    return <Loader />
   }
 
   if (error) {
@@ -65,7 +66,7 @@ const customTicks = (data) => {
         x={data.payload.coordinate.x}
         dy={5}
         fontSize="0.75rem"
-        className='capitalize'
+        className="capitalize"
       >
         {data.payload.value}
       </tspan>

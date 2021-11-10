@@ -1,6 +1,7 @@
 import React from 'react'
 import * as d3 from 'd3'
 import { getUserInfos } from '../../hooks/getUserInfos'
+import Loader from '../loader/loader'
 
 const DailyScore = () => {
   const { loading, error, data } = getUserInfos()
@@ -9,11 +10,7 @@ const DailyScore = () => {
   if (score) makeSVG(score)
 
   if (loading) {
-    return (
-      <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">
-        Loading
-      </div>
-    )
+    return <Loader />
   }
 
   if (error) {

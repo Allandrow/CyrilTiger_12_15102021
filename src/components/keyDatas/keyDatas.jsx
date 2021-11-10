@@ -1,6 +1,7 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
 import KeyData from '../keyData/keyData'
+import Loader from '../loader/loader'
 
 const KeyDatas = () => {
   const { loading, error, data } = getUserInfos()
@@ -10,7 +11,9 @@ const KeyDatas = () => {
     : NaN
 
   if (loading) {
-    return <div className="flex flex-col justify-between h-full">Loading</div>
+    // TODO : Add className props to Loader to customize component
+    // return <div className="flex flex-col justify-between h-full">Loading</div>
+    return <Loader />
   }
 
   if (error) {

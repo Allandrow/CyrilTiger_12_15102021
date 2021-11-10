@@ -1,5 +1,6 @@
 import React from 'react'
 import { getUserAverageSessions } from '../../hooks/getUserAverageSessions'
+import Loader from '../loader/loader'
 import * as d3 from 'd3'
 
 const AverageChart = () => {
@@ -10,7 +11,7 @@ const AverageChart = () => {
   }
 
   if (loading) {
-    return <div className="flex-1">Loading</div>
+    return <Loader />
   }
 
   if (error) {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
+import Loader from '../loader/loader'
 
 const Headline = () => {
   const { loading, error, data } = getUserInfos()
@@ -7,7 +8,8 @@ const Headline = () => {
   const name = data ? data.userInfos.firstName : 'Visiteur'
 
   if (loading) {
-    return <div className="flex gap-10 flex-col">Loading</div>
+    // return <div className="flex gap-10 flex-col">Loading</div>
+    return <Loader />
   }
 
   if (error) {

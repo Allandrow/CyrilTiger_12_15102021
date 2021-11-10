@@ -1,6 +1,7 @@
 import React from 'react'
 import * as d3 from 'd3'
 import { getUserActivity } from '../../hooks/getUserActivity'
+import Loader from '../loader/loader'
 
 const Histogram = () => {
   const { loading, error, data } = getUserActivity()
@@ -11,7 +12,7 @@ const Histogram = () => {
   }
 
   if (loading) {
-    return <div className="bg-gray-50 rounded-md p-4">Loading</div>
+    return <Loader />
   }
 
   if (error) {
