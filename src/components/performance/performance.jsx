@@ -35,7 +35,7 @@ const Performance = () => {
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={performance}>
           <PolarGrid />
-          <PolarAngleAxis dataKey="kind" />
+          <PolarAngleAxis dataKey="kind" tick={customTicks} />
           <PolarRadiusAxis
             angle={30}
             domain={[0, Math.max(...performance.map((item) => item.value))]}
@@ -45,6 +45,31 @@ const Performance = () => {
         </RadarChart>
       </ResponsiveContainer>
     </div>
+  )
+}
+
+const customTicks = (data) => {
+  return (
+    <text
+      type={data.type}
+      cx={data.cx}
+      cy={data.cy}
+      orientation={data.orientation}
+      radius={data.radius}
+      stroke={data.stroke}
+      x={data.x}
+      y={data.y}
+      textAnchor={data.textAnchor}
+    >
+      <tspan
+        x={data.payload.coordinate.x}
+        dy={5}
+        fontSize="0.75rem"
+        className='capitalize'
+      >
+        {data.payload.value}
+      </tspan>
+    </text>
   )
 }
 
