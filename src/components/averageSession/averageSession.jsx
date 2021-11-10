@@ -3,7 +3,7 @@ import { getUserAverageSessions } from '../../hooks/getUserAverageSessions'
 import Loader from '../loader/loader'
 import * as d3 from 'd3'
 
-const AverageChart = () => {
+const AverageSession = () => {
   const { loading, error, data } = getUserAverageSessions()
 
   if (data) {
@@ -133,4 +133,4 @@ const makeSVG = (data) => {
     .attr('text-anchor', 'middle')
 }
 
-export default AverageChart
+export default AverageSession
