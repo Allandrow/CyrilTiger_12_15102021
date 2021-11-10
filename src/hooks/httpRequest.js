@@ -15,12 +15,12 @@ export const httpRequest = (url) => {
     axios
       .get(url)
       .then((res) => {
-        setLoading(false)
         setData(res.data)
+        setLoading(false)
       })
       .catch((err) => {
-        setLoading(false)
         setError(err ?? 'Error')
+        setLoading(false)
       })
   }, [url])
 

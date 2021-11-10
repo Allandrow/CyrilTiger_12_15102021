@@ -2,22 +2,23 @@ import React from 'react'
 import * as d3 from 'd3'
 import { getUserActivity } from '../../hooks/getUserActivity'
 import Loader from '../loader/loader'
+import Error from '../error/error'
 
 const Histogram = () => {
   const { loading, error, data } = getUserActivity()
-
-  if (data) {
-    const activity = data.sessions
-    makeSVG(activity)
-  }
 
   if (loading) {
     return <Loader />
   }
 
   if (error) {
-    return <div className="bg-gray-50 rounded-md p-4">{error}</div>
+    // TODO : import className props to customize component
+    // return <div className="bg-gray-50 rounded-md p-4">{error}</div>
+    return <Error />
   }
+
+  const activity = data.sessions
+  makeSVG(activity)
 
   return (
     <div className="bg-gray-50 rounded-md p-8">

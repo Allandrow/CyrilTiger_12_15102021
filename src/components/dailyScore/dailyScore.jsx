@@ -2,12 +2,10 @@ import React from 'react'
 import * as d3 from 'd3'
 import { getUserInfos } from '../../hooks/getUserInfos'
 import Loader from '../loader/loader'
+import Error from '../error/error'
 
 const DailyScore = () => {
   const { loading, error, data } = getUserInfos()
-
-  const score = data ? data.todayScore : 0
-  if (score) makeSVG(score)
 
   if (loading) {
     return <Loader />
@@ -15,11 +13,15 @@ const DailyScore = () => {
 
   if (error) {
     return (
-      <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">
-        {error}
-      </div>
+      // <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">
+      //   {error}
+      // </div>
+      <Error />
     )
   }
+
+  const score = data ? data.todayScore : 0
+  makeSVG(score)
 
   return (
     <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">

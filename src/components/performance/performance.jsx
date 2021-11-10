@@ -9,6 +9,7 @@ import {
 } from 'recharts'
 import { getUserPerformance } from '../../hooks/getUserPerformance'
 import Loader from '../loader/loader'
+import Error from '../error/error'
 
 const Performance = () => {
   const { loading, error, data } = getUserPerformance()
@@ -28,7 +29,7 @@ const Performance = () => {
   }
 
   if (error) {
-    return <div className="flex-1">{error}</div>
+    return <Error />
   }
 
   return (

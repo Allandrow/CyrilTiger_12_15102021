@@ -1,6 +1,7 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
 import Loader from '../loader/loader'
+import Error from '../error/error'
 
 const Headline = () => {
   const { loading, error, data } = getUserInfos()
@@ -13,7 +14,8 @@ const Headline = () => {
   }
 
   if (error) {
-    return <div className="flex gap-10 flex-col">{error}</div>
+    // return <div className="flex gap-10 flex-col">{error}</div>
+    return <Error />
   }
 
   return (
