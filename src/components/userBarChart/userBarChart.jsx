@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as d3 from 'd3'
 import PropTypes from 'prop-types'
 
@@ -8,7 +8,9 @@ import PropTypes from 'prop-types'
  * @returns
  */
 const UserBarChart = ({ activity }) => {
-  makeSVG(activity)
+  useEffect(() => {
+    makeSVG(activity)
+  }, [activity])
 
   return <div id="histogram"></div>
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import * as d3 from 'd3'
 import PropTypes from 'prop-types'
 
@@ -7,7 +7,9 @@ import PropTypes from 'prop-types'
  * @param {number} score daily score
  */
 const userRadialChart = ({ score }) => {
-  makeSVG(score)
+  useEffect(() => {
+    makeSVG(score)
+  })
   return <div id="dailyScore"></div>
 }
 
