@@ -9,3 +9,5 @@ export default {
 const Template = () => <DailyScore />
 
 export const Default = Template.bind({})
+
+// TODO : complete story
