@@ -1,17 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import { LineChart } from 'recharts'
+import {
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis
+} from 'recharts'
 
 /**
  * Line Chart Component
- * @param {Array} sessions Objects array containing sessions length for each day
+ * @param {Array} data Objects array containing sessions length for each day
  */
-const UserLineChart = ({ sessions }) => {
-  return <div>Hello</div>
+const UserLineChart = ({ data }) => {
+  const sessions = [
+    { day: 0, sessionLength: 0 },
+    ...data,
+    { day: data.length + 1, sessionLength: 0 }
+  ]
+  const days = ['', 'L', 'M', 'M', 'J', 'V', 'S', 'D', '']
+  sessions.map((item, i) => (item.day = days[i]))
+
+  return (
+    <LineChart data={sessions} width={400} height={260}>
+      <XAxis dataKey="days" axisLine={false} />
+      <YAxis hide={true} />
+      <Line
+        type="monotone"
+        dataKey="sessionLength"
+        stroke="white"
+        strokeWidth="2"
+        isAnimationActive={false}
+      />
+      <Tooltip itemStyle={{ color: 'black' }} />
+    </LineChart>
+  )
 }
 
 UserLineChart.propTypes = {
-  sessions: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired
 }
 
 export default UserLineChart
