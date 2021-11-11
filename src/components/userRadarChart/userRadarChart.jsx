@@ -28,7 +28,7 @@ const UserRadarChart = ({ kind, data }) => {
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" tick={customTicks} />
         <PolarRadiusAxis angle={30} domain={[0, 'auto']} tick={false} />
-        <Radar dataKey="value" stroke="red" fill="red" fillOpacity={0.8} />
+        <Radar dataKey="value" stroke="red" fill="red" fillOpacity={0.8} isAnimationActive={false} />
       </RadarChart>
     </ResponsiveContainer>
   )
