@@ -24,18 +24,24 @@ const UserLineChart = ({ data }) => {
         tickLine={false}
       />
       <YAxis hide={true} />
+      <Tooltip
+        content={customToolTipLabel}
+        allowEscapeViewBox={{ x: true }}
+        isAnimationActive={false}
+        cursor={<CustomCursor />}
+      />
       <Line
         type="monotone"
         dataKey="sessionLength"
         stroke="white"
         strokeWidth="2"
         isAnimationActive={false}
-      />
-      <Tooltip
-        content={customToolTipLabel}
-        allowEscapeViewBox={{ x: true }}
-        isAnimationActive={false}
-        cursor={<CustomCursor />}
+        dot={false}
+        activeDot={{
+          strokeWidth: 10,
+          stroke: 'white',
+          strokeOpacity: 0.4
+        }}
       />
     </LineChart>
   )
