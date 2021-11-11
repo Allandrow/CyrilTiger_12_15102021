@@ -16,7 +16,12 @@ const UserLineChart = ({ data }) => {
   sessions.map((item, i) => (item.day = days[i]))
 
   return (
-    <LineChart data={sessions} width={400} height={260}>
+    <LineChart
+      data={sessions}
+      width={260}
+      height={260}
+      margin={{ top: 10, bottom: 15 }}
+    >
       <XAxis
         dataKey="day"
         axisLine={false}
@@ -35,6 +40,7 @@ const UserLineChart = ({ data }) => {
         dataKey="sessionLength"
         stroke="white"
         strokeWidth="2"
+        strokeOpacity="0.8"
         isAnimationActive={false}
         dot={false}
         activeDot={{
@@ -77,7 +83,7 @@ const CustomCursor = ({ points, height }) => {
 
 const customAxisTick = ({ x, y, payload }) => {
   return (
-    <g transform={`translate(${x}, ${y})`}>
+    <g transform={`translate(${x}, ${y + 5})`}>
       <text fill="white" textAnchor="middle" x={0} y={0} dy={16}>
         {payload.value}
       </text>
