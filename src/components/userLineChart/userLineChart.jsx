@@ -31,12 +31,17 @@ const UserLineChart = ({ data }) => {
         strokeWidth="2"
         isAnimationActive={false}
       />
-      <Tooltip content={customToolTip} />
+      <Tooltip
+        content={customToolTipLabel}
+        allowEscapeViewBox={{ x: true }}
+        isAnimationActive={false}
+        cursor={<CustomCursor />}
+      />
     </LineChart>
   )
 }
 
-const customToolTip = ({ payload, active }) => {
+const customToolTipLabel = ({ payload, active }) => {
   if (active) {
     return (
       <div className="bg-white p-2">
@@ -45,6 +50,23 @@ const customToolTip = ({ payload, active }) => {
     )
   }
   return null
+}
+
+/**
+ * Custom cursor on line chart hover
+ * @param {array} points coordinates of data point
+ * @param {number} height height of viewbox
+ */
+const CustomCursor = ({ points, height }) => {
+  return (
+    <rect
+      x={points[0].x}
+      y="0"
+      height={height + 10}
+      width="100%"
+      fill="rgba(230, 0, 0, 0.4)"
+    ></rect>
+  )
 }
 
 const customAxisTick = ({ x, y, payload }) => {
@@ -59,6 +81,11 @@ const customAxisTick = ({ x, y, payload }) => {
 
 UserLineChart.propTypes = {
   data: PropTypes.array.isRequired
+}
+
+CustomCursor.propTypes = {
+  points: PropTypes.array,
+  height: PropTypes.number
 }
 
 export default UserLineChart
