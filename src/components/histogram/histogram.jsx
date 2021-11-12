@@ -18,7 +18,7 @@ const Histogram = () => {
   }
 
   return (
-    <div className="bg-gray-50 rounded-md p-8">
+    <div className="bg-gray-50 rounded-md p-8 h-80">
       <div className="flex justify-between">
         <h3 className="font-medium">Activité quotidienne</h3>
         <div className="flex gap-4 font-medium text-sm text-gray-500">
