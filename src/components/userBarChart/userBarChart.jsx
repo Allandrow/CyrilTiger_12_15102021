@@ -17,10 +17,10 @@ import {
  */
 const UserBarChart = ({ data }) => {
   const activity = data.map((item, i) => {
+    const { day, ...rest } = item
     return {
       day: i + 1,
-      kilogram: item.kilogram,
-      calories: item.calories
+      ...rest
     }
   })
   const {
@@ -60,7 +60,7 @@ const UserBarChart = ({ data }) => {
           strokeDasharray="4 4"
           horizontalPoints={[20, 113]}
         />
-        <Tooltip content={customToolTip} />
+        <Tooltip content={customToolTip} allowEscapeViewBox={{ x: true }} />
         <Bar
           dataKey="kilogram"
           fill="#282D30"
