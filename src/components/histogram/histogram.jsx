@@ -27,12 +27,12 @@ const Histogram = () => {
             <span>Poids (kg)</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="block w-2 h-2 rounded bg-red-500"></span>
+            <span className="block w-2 h-2 rounded bg-barRed"></span>
             <span>Calories brûlées (kCal)</span>
           </div>
         </div>
       </div>
-      <UserBarChart activity={data.sessions} />
+      <UserBarChart data={data.sessions} />
     </div>
   )
 }
