@@ -8,7 +8,7 @@ const Charts = () => {
   return (
     <div className="flex-1 gap-8 flex flex-col">
       <Histogram />
-      <div className="flex gap-8">
+      <div className="flex gap-8 h-72">
         <AverageSession />
         <Performance />
         <DailyScore />

@@ -14,11 +14,13 @@ const AverageSession = () => {
   }
 
   return (
-    <div className="flex-1 bg-primary rounded-md">
-      <h3 className="text-white opacity-80 mt-8 ml-8 text-base font-medium">
+    <div className="flex-1 bg-primary rounded-md flex flex-col pt-4 pb-4">
+      <h3 className="text-white opacity-80 mt-4 ml-8 text-base font-medium">
         Durée moyenne des <br /> sessions
       </h3>
-      <UserLineChart data={data.sessions} />
+      <div className="flex-1">
+        <UserLineChart data={data.sessions} />
+      </div>
     </div>
   )
 }
