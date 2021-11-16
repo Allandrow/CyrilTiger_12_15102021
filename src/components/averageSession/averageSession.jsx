@@ -1,18 +1,16 @@
 import React from 'react'
 import { getUserAverageSessions } from '../../hooks/getUserAverageSessions'
 import UserLineChart from '../userLineChart/userLineChart'
-import Loader from '../loader/loader'
-import Error from '../error/error'
 
 const AverageSession = () => {
   const { loading, error, data } = getUserAverageSessions()
 
   if (loading) {
-    return <Loader />
+    return <div className="flex-1 bg-primary rounded-md">Loading</div>
   }
 
   if (error) {
-    return <Error />
+    return <div className="flex-1 bg-primary rounded-md">{error}</div>
   }
 
   return (

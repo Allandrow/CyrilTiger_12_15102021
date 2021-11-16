@@ -1,18 +1,24 @@
 import React from 'react'
 import { getUserPerformance } from '../../hooks/getUserPerformance'
-import Loader from '../loader/loader'
-import Error from '../error/error'
 import UserRadarChart from '../userRadarChart/userRadarChart'
 
 const Performance = () => {
   const { loading, error, data } = getUserPerformance()
 
   if (loading) {
-    return <Loader />
+    return (
+      <div className="flex-1 rounded bg-secondary p-4 fill-current text-white">
+        Loading
+      </div>
+    )
   }
 
   if (error) {
-    return <Error />
+    return (
+      <div className="flex-1 rounded bg-secondary p-4 fill-current text-white">
+        {error}
+      </div>
+    )
   }
 
   return (

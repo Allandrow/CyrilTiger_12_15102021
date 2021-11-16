@@ -1,26 +1,21 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
 import KeyData from '../keyData/keyData'
-import Loader from '../loader/loader'
-import Error from '../error/error'
 
 const KeyDatas = () => {
   const { loading, error, data } = getUserInfos()
 
-  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = data
-    ? data.keyData
-    : NaN
-
   if (loading) {
-    // TODO : Add className props to Loader to customize component
-    // return <div className="flex flex-col justify-between h-full">Loading</div>
-    return <Loader />
+    return <div className="flex flex-col justify-between h-full">Loading</div>
   }
 
   if (error) {
-    // return <div className="flex flex-col justify-between h-full">{error}</div>
-    return <Error />
+    return <div className="flex flex-col justify-between h-full">{error}</div>
   }
+
+  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = data
+    ? data.keyData
+    : NaN
 
   return (
     <div className="flex flex-col justify-between h-full">

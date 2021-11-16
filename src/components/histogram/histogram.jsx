@@ -1,20 +1,16 @@
 import React from 'react'
 import { getUserActivity } from '../../hooks/getUserActivity'
-import Loader from '../loader/loader'
-import Error from '../error/error'
 import UserBarChart from '../userBarChart/userBarChart'
 
 const Histogram = () => {
   const { loading, error, data } = getUserActivity()
 
   if (loading) {
-    return <Loader />
+    return <div className="bg-gray-50 rounded-md p-8 h-80">Loading</div>
   }
 
   if (error) {
-    // TODO : import className props to customize component
-    // return <div className="bg-gray-50 rounded-md p-4">{error}</div>
-    return <Error />
+    return <div className="bg-gray-50 rounded-md p-8 h-80">{error}</div>
   }
 
   return (
