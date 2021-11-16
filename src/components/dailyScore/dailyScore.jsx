@@ -16,7 +16,7 @@ const DailyScore = () => {
       // <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col">
       //   {error}
       // </div>
-      <Error />
+      <Error error={error} />
     )
   }
 

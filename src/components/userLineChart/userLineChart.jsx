@@ -8,9 +8,9 @@ import { Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts'
  */
 const UserLineChart = ({ data }) => {
   const sessions = [
-    { day: 0, sessionLength: 0 },
+    { day: 0, sessionLength: 0, hideTooltip: true },
     ...data,
-    { day: data.length + 1, sessionLength: 0 }
+    { day: data.length + 1, sessionLength: 0, hideTooltip: true }
   ]
   const days = ['', 'L', 'M', 'M', 'J', 'V', 'S', 'D', '']
   sessions.map((item, i) => (item.day = days[i]))
@@ -54,7 +54,7 @@ const UserLineChart = ({ data }) => {
 }
 
 const customToolTipLabel = ({ payload, active }) => {
-  if (active) {
+  if (active && !payload[0].payload.hideTooltip) {
     return (
       <div className="bg-white p-2">
         <p className="font-medium text-xs">{payload[0].value} min</p>
