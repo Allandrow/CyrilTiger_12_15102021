@@ -6,5 +6,5 @@ import { config } from '../../constants'
  * @returns {object} loading, error, data
  */
 export const getUserAverageSessions = () => {
-  return httpRequest(config.url.API_URL_SESSIONS)
+  return httpRequest(config.url.API_USER_SESSIONS())
 }

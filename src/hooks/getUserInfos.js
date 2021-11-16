@@ -6,5 +6,5 @@ import { config } from '../../constants'
  * @returns {object} loading, error, data
  */
 export const getUserInfos = () => {
-  return httpRequest(config.url.API_URL_INFOS)
+  return httpRequest(config.url.API_USER_INFOS())
 }

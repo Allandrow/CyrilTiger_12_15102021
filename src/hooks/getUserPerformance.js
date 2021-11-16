@@ -6,5 +6,5 @@ import { config } from '../../constants'
  * @returns {object} loading, error, data
  */
 export const getUserPerformance = () => {
-  return httpRequest(config.url.API_URL_PERFORMANCE)
+  return httpRequest(config.url.API_USER_PERFORMANCE())
 }

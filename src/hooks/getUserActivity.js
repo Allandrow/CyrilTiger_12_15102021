@@ -6,5 +6,5 @@ import { config } from '../../constants'
  * @returns {object} loading, error, data
  */
 export const getUserActivity = () => {
-  return httpRequest(config.url.API_URL_ACTIVITY)
+  return httpRequest(config.url.API_USER_ACTIVITY())
 }
