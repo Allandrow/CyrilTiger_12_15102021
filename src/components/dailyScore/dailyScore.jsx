@@ -22,8 +22,8 @@ const DailyScore = () => {
   }
 
   return (
-    <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col flex-1">
-      <h3 className="text-base font-medium">Score</h3>
+    <div className="bg-gray-50 rounded-md pt-8 flex flex-col flex-1">
+      <h3 className="text-base font-medium ml-8">Score</h3>
       <UserRadialChart score={data.todayScore} />
     </div>
   )
