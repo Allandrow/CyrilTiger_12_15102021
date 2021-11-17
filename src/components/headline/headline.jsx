@@ -15,7 +15,7 @@ const Headline = () => {
   }
 
   return (
-    <div className="flex gap-6 flex-col">
+    <div className="flex gap-6 flex-col xxl:gap-10">
       <h2 className="text-5xl font-medium">
         Bonjour <span className="text-primary">{name}</span>
       </h2>

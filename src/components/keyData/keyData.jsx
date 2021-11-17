@@ -16,7 +16,7 @@ const KeyData = ({ value, type }) => {
   const formatedValue = new Intl.NumberFormat('en-GB').format(value)
 
   return (
-    <div className="bg-gray-50 p-4 rounded-md flex gap-8">
+    <div className="bg-gray-50 p-4 rounded-md flex gap-8 xxl:p-8">
       <div
         className={`flex justify-center items-center w-icon h-icon rounded-md bg-${background}-100`}
       >

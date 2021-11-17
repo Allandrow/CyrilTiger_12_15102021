@@ -24,7 +24,7 @@ const UserRadarChart = ({ kind, data }) => {
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <RadarChart data={performance}>
+      <RadarChart data={performance} margin={{ left: 35, right: 35 }}>
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" tick={customTicks} />
         <PolarRadiusAxis angle={30} domain={[0, 'auto']} tick={false} />
