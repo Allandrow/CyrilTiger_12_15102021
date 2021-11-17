@@ -6,9 +6,9 @@ import AverageSession from '../averageSession/averageSession'
 
 const Charts = () => {
   return (
-    <div className="flex-1 gap-8 flex flex-col">
+    <div className="grid order-2 gap-8 col-span-4">
       <Histogram />
-      <div className="flex gap-8 h-72">
+      <div className="grid gap-8 grid-cols-2">
         <AverageSession />
         <Performance />
         <DailyScore />

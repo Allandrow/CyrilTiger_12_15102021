@@ -5,9 +5,9 @@ import KeyDatas from '../keyDatas/keyDatas'
 
 const Dashboard = () => {
   return (
-    <section className="flex p-16 flex-col flex-1">
+    <section className="flex p-8 flex-col flex-1 order-1 col-span-2">
       <Headline />
-      <div className="mt-16 flex-1 flex gap-8">
+      <div className="mt-8 flex-1 grid gap-8 grid-cols-4">
         <Charts />
         <KeyDatas />
       </div>

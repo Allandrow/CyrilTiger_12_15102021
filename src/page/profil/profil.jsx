@@ -6,7 +6,7 @@ import Sidebar from '../../components/sidebar/sidebar'
 const Profil = () => {
   return (
     <MainLayout>
-      <main className="flex h-full">
+      <main className="h-full grid grid-cols-2">
         <Sidebar />
         <Dashboard />
       </main>

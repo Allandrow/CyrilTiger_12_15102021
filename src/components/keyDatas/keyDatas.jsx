@@ -6,11 +6,11 @@ const KeyDatas = () => {
   const { loading, error, data } = getUserInfos()
 
   if (loading) {
-    return <div className="flex flex-col justify-between h-full">Loading</div>
+    return <div className="grid col-span-4 order-1 grid-cols-4">Loading</div>
   }
 
   if (error) {
-    return <div className="flex flex-col justify-between h-full">{error}</div>
+    return <div className="grid col-span-4 order-1 grid-cols-4">{error}</div>
   }
 
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = data
@@ -18,7 +18,7 @@ const KeyDatas = () => {
     : NaN
 
   return (
-    <div className="flex flex-col justify-between h-full">
+    <div className="grid col-span-4 order-1 grid-cols-4 gap-8">
       <KeyData value={calorieCount} type="calorieCount" />
       <KeyData value={proteinCount} type="proteinCount" />
       <KeyData value={carbohydrateCount} type="carbohydrateCount" />

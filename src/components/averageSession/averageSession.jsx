@@ -6,17 +6,17 @@ const AverageSession = () => {
   const { loading, error, data } = getUserAverageSessions()
 
   if (loading) {
-    return <div className="flex-1 bg-primary rounded-md">Loading</div>
+    return <div className="flex-1 bg-primary rounded-md h-72">Loading</div>
   }
 
   if (error) {
-    return <div className="flex-1 bg-primary rounded-md">{error}</div>
+    return <div className="flex-1 bg-primary rounded-md h-72">{error}</div>
   }
 
   return (
-    <div className="flex-1 bg-primary rounded-md flex flex-col pt-4 pb-4">
+    <div className="flex-1 bg-primary rounded-md flex flex-col pt-4 pb-4 col-span-2 h-72">
       <h3 className="text-white opacity-80 mt-4 ml-8 text-base font-medium">
-        Durée moyenne des <br /> sessions
+        Durée moyenne des <br className="hidden" /> sessions
       </h3>
       <div className="flex-1">
         <UserLineChart data={data.sessions} />

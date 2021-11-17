@@ -7,8 +7,8 @@ import PropTypes from 'prop-types'
  */
 const SidebarIcon = ({ url, altText }) => {
   return (
-    <li className="bg-white rounded-md h-16 w-16 flex justify-center items-center">
-      <img src={url} alt={altText} />
+    <li className="h-16 w-16 bg-white rounded-md flex justify-center items-center">
+      <img src={url} alt={altText} className=''/>
     </li>
   )
 }

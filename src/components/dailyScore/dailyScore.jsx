@@ -7,23 +7,19 @@ const DailyScore = () => {
 
   if (loading) {
     return (
-      <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col flex-1">
-        Loading
-      </div>
+      <div className="bg-gray-50 rounded-md pt-8 h-72 col-span-1">Loading</div>
     )
   }
 
   if (error) {
     return (
-      <div className="bg-gray-50 rounded-md pt-8 pl-8 pr-8 flex flex-col flex-1">
-        {error}
-      </div>
+      <div className="bg-gray-50 rounded-md pt-8 h-72 col-span-1">{error}</div>
     )
   }
 
   return (
-    <div className="bg-gray-50 rounded-md pt-8 flex flex-col flex-1">
-      <h3 className="text-base font-medium ml-8">Score</h3>
+    <div className="bg-gray-50 rounded-md pt-8 h-72 col-span-1 relative">
+      <h3 className="text-base font-medium ml-8 absolute">Score</h3>
       <UserRadialChart score={data.todayScore} />
     </div>
   )
