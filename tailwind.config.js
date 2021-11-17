@@ -15,19 +15,26 @@ module.exports = {
       textColor: { primary: '#FF0101', secondary: '#282D30' },
       width: { icon: '60px' },
       height: { icon: '60px' }
+    },
+    screens: {
+      xl: '1280px',
+      xxl: '1440px'
     }
   },
   variants: {
     extend: {}
   },
   plugins: [
-    ({ addComponents }) => {
-      addComponents({
-        '.writing-vert': {
-          writingMode: 'vertical-rl',
-          textOrientation: 'mixed'
-        }
-      })
+    ({ addUtilities }) => {
+      addUtilities(
+        {
+          '.writing-vert': {
+            writingMode: 'vertical-rl',
+            textOrientation: 'mixed'
+          }
+        },
+        ['responsive']
+      )
     }
   ]
 }
