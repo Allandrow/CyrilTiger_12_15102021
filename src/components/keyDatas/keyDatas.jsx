@@ -1,9 +1,11 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
+import { useUser } from '../../layout/userContext'
 import KeyData from '../keyData/keyData'
 
 const KeyDatas = () => {
-  const { loading, error, data } = getUserInfos()
+  const userId = useUser()
+  const { loading, error, data } = getUserInfos(userId)
 
   if (loading) {
     return <div className="grid col-span-4 order-1 grid-cols-4">Loading</div>

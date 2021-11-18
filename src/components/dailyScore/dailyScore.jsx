@@ -1,9 +1,11 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
 import UserRadialChart from '../userRadialChart/userRadialChart'
+import { useUser } from '../../layout/userContext'
 
 const DailyScore = () => {
-  const { loading, error, data } = getUserInfos()
+  const userId = useUser()
+  const { loading, error, data } = getUserInfos(userId)
 
   if (loading) {
     return (

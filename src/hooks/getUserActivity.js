@@ -3,8 +3,9 @@ import { config } from '../../constants'
 
 /**
  * Hook to fetch user activity
+ * @param {string} id user id
  * @returns {object} loading, error, data
  */
-export const getUserActivity = () => {
-  return httpRequest(config.url.API_USER_ACTIVITY())
+export const getUserActivity = (id) => {
+  return httpRequest(config.url.API_USER_ACTIVITY(id))
 }

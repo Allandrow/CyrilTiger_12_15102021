@@ -1,9 +1,11 @@
 import React from 'react'
 import { getUserAverageSessions } from '../../hooks/getUserAverageSessions'
+import { useUser } from '../../layout/userContext'
 import UserLineChart from '../userLineChart/userLineChart'
 
 const AverageSession = () => {
-  const { loading, error, data } = getUserAverageSessions()
+  const userId = useUser()
+  const { loading, error, data } = getUserAverageSessions(userId)
 
   if (loading) {
     return <div className="flex-1 bg-primary rounded-md h-72">Loading</div>

@@ -19,17 +19,17 @@ const prod = {
 
 const dev = {
   url: {
-    API_USER_INFOS() {
-      return '../src/data/userInfos.json'
+    API_USER_INFOS(userId) {
+      return `../src/data/${userId}/userInfos.json`
     },
-    API_USER_ACTIVITY() {
-      return '../src/data/userActivity.json'
+    API_USER_ACTIVITY(userId) {
+      return `../src/data/${userId}/userActivity.json`
     },
-    API_USER_SESSIONS() {
-      return '../src/data/userAverageSession.json'
+    API_USER_SESSIONS(userId) {
+      return `../src/data/${userId}/userAverageSession.json`
     },
-    API_USER_PERFORMANCE() {
-      return '../src/data/userPerformance.json'
+    API_USER_PERFORMANCE(userId) {
+      return `../src/data/${userId}/userPerformance.json`
     }
   }
 }

@@ -3,8 +3,9 @@ import { config } from '../../constants'
 
 /**
  * Hook to fetch user informations
+ * @param {string} id user id
  * @returns {object} loading, error, data
  */
-export const getUserInfos = () => {
-  return httpRequest(config.url.API_USER_INFOS())
+export const getUserInfos = (id) => {
+  return httpRequest(config.url.API_USER_INFOS(id))
 }

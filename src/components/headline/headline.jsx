@@ -1,8 +1,10 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
+import { useUser } from '../../layout/userContext'
 
 const Headline = () => {
-  const { loading, error, data } = getUserInfos()
+  const userId = useUser()
+  const { loading, error, data } = getUserInfos(userId)
 
   const name = data ? data.userInfos.firstName : 'Visiteur'
 

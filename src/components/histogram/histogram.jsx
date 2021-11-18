@@ -1,9 +1,11 @@
 import React from 'react'
 import { getUserActivity } from '../../hooks/getUserActivity'
+import { useUser } from '../../layout/userContext'
 import UserBarChart from '../userBarChart/userBarChart'
 
 const Histogram = () => {
-  const { loading, error, data } = getUserActivity()
+  const userId = useUser()
+  const { loading, error, data } = getUserActivity(userId)
 
   if (loading) {
     return <div className="bg-gray-50 rounded-md p-8 h-80">Loading</div>

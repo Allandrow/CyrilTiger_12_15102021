@@ -1,9 +1,11 @@
 import React from 'react'
 import { getUserPerformance } from '../../hooks/getUserPerformance'
+import { useUser } from '../../layout/userContext'
 import UserRadarChart from '../userRadarChart/userRadarChart'
 
 const Performance = () => {
-  const { loading, error, data } = getUserPerformance()
+  const userId = useUser()
+  const { loading, error, data } = getUserPerformance(userId)
 
   if (loading) {
     return (

@@ -23,12 +23,9 @@ const UserBarChart = ({ data }) => {
       ...rest
     }
   })
-  const {
-    weightDomainMin,
-    weightDomainMax,
-    calorieDomainMin,
-    calorieDomainMax
-  } = getDomains(activity)
+  const { weightDomainMin, weightDomainMax, calorieDomainMax } = getDomains(
+    activity
+  )
 
   return (
     <ResponsiveContainer height="100%" width="100%">
@@ -52,7 +49,7 @@ const UserBarChart = ({ data }) => {
         <YAxis
           dataKey="calories"
           yAxisId="calories"
-          domain={[calorieDomainMin, calorieDomainMax]}
+          domain={[0, calorieDomainMax]}
           hide={true}
         />
         <CartesianGrid
@@ -64,7 +61,6 @@ const UserBarChart = ({ data }) => {
         <Bar
           dataKey="kilogram"
           fill="#282D30"
-          isAnimationActive={false}
           yAxisId="kilogram"
           barSize={7}
           legendType="circle"
@@ -73,7 +69,6 @@ const UserBarChart = ({ data }) => {
         <Bar
           dataKey="calories"
           fill="#E60000"
-          isAnimationActive={false}
           yAxisId="calories"
           barSize={7}
           legendType="circle"
@@ -112,13 +107,11 @@ const getDomains = (data) => {
   const caloriesAverage = Math.floor(
     calories.reduce((a, b) => a + b) / calories.length
   )
-  const calorieDomainMin = caloriesAverage - caloriesRange / 2
   const calorieDomainMax = caloriesAverage + caloriesRange / 2
 
   return {
     weightDomainMin,
     weightDomainMax,
-    calorieDomainMin,
     calorieDomainMax
   }
 }
