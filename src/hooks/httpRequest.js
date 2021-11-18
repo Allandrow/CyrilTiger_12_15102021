@@ -15,7 +15,7 @@ export const httpRequest = (url) => {
     axios
       .get(url)
       .then((res) => {
-        setData(res.data)
+        setData(res.data.data)
         setLoading(false)
       })
       .catch((err) => {

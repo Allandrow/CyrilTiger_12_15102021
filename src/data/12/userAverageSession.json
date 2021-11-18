@@ -1,5 +1,6 @@
 {
-  "userId": 12,
+  "data": {
+    "userId": 12,
   "sessions": [
     {
       "day": 1,
@@ -30,4 +31,5 @@
       "sessionLength": 60
     }
   ]
+  }
 }
