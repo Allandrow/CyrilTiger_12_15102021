@@ -6,14 +6,16 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <MainLayout>
-      <h1>SportSee User List :</h1>
-      <ul>
-        {userList.map((user) => (
-          <Link key={user.id} to={`/about/${user.id}`}>
-            {user.name}
-          </Link>
-        ))}
-      </ul>
+      <section>
+        <h1>SportSee User List :</h1>
+        <ul>
+          {userList.map((user) => (
+            <Link key={user.id} to={`user/${user.id}`}>
+              {user.name}
+            </Link>
+          ))}
+        </ul>
+      </section>
     </MainLayout>
   )
 }

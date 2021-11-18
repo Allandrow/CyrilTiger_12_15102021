@@ -6,7 +6,7 @@ const Navigation = () => {
     <nav className="text-white text-2xl font-medium flex-1">
       <ul className="flex justify-between">
         <li>
-          <Link exact to='/'>Accueil</Link>
+          <Link to="/">Accueil</Link>
         </li>
         <li>
           <a href="">Profil</a>

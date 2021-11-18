@@ -7,7 +7,9 @@ const Header = () => {
   return (
     <header className="bg-dark flex justify-between gap-36 items-center p-5 shadow-lg">
       <h1>
-        <Link exact to='/'><img src={logo} alt="SportSee" /></Link>
+        <Link to="/">
+          <img src={logo} alt="SportSee" />
+        </Link>
       </h1>
       <Navigation />
     </header>
