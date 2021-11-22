@@ -33,7 +33,7 @@ const UserLineChart = ({ data }) => {
         />
         <YAxis hide={true} />
         <Tooltip
-          content={customToolTipLabel}
+          content={<CustomToolTipLabel />}
           allowEscapeViewBox={{ x: true }}
           cursor={<CustomCursor />}
         />
@@ -57,7 +57,7 @@ const UserLineChart = ({ data }) => {
  * @param {object} payload data
  * @param {boolean} active boolean to control if tooltip should be shown or not
  */
-const customToolTipLabel = ({ payload, active }) => {
+const CustomToolTipLabel = ({ payload, active }) => {
   if (active && !payload[0].payload.hideTooltip) {
     return (
       <div className="bg-white p-2">
@@ -134,6 +134,11 @@ const customAxisTick = ({ x, y, payload }) => {
 
 UserLineChart.propTypes = {
   data: PropTypes.array.isRequired
+}
+
+CustomToolTipLabel.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool
 }
 
 CustomCursor.propTypes = {

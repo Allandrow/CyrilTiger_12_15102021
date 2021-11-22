@@ -1,10 +1,10 @@
 import React from 'react'
 import { getUserAverageSessions } from '../../hooks/getUserAverageSessions'
-import { useUser } from '../../layout/userContext'
+import { useUserId } from '../../layout/userIdContext'
 import UserLineChart from '../userLineChart/userLineChart'
 
 const AverageSession = () => {
-  const userId = useUser()
+  const userId = useUserId()
   const { loading, error, data } = getUserAverageSessions(userId)
 
   if (loading) {

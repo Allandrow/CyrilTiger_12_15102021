@@ -52,12 +52,16 @@ const UserBarChart = ({ data }) => {
           domain={[0, calorieDomainMax]}
           hide={true}
         />
+        <Tooltip
+          content={<CustomToolTip />}
+          isAnimationActive={false}
+          cursor={{ opacity: 0.6 }}
+        />
         <CartesianGrid
           vertical={false}
           strokeDasharray="4 4"
           horizontalPoints={[20, 113]}
         />
-        <Tooltip content={customToolTip} allowEscapeViewBox={{ x: true }} />
         <Bar
           dataKey="kilogram"
           fill="#282D30"
@@ -116,7 +120,12 @@ const getDomains = (data) => {
   }
 }
 
-const customToolTip = ({ payload, active }) => {
+/**
+ * Custom Tooltip displayed on hover
+ * @param {Array} payload data
+ * @param {Boolean} active active state
+ */
+const CustomToolTip = ({ payload, active }) => {
   if (active) {
     return (
       <div className="bg-barRed flex flex-col text-white gap-4 p-4 text-sm">
@@ -131,6 +140,11 @@ const customToolTip = ({ payload, active }) => {
 
 UserBarChart.propTypes = {
   data: PropTypes.array.isRequired
+}
+
+CustomToolTip.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool
 }
 
 export default UserBarChart

@@ -1,10 +1,10 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
 import UserRadialChart from '../userRadialChart/userRadialChart'
-import { useUser } from '../../layout/userContext'
+import { useUserId } from '../../layout/userIdContext'
 
 const DailyScore = () => {
-  const userId = useUser()
+  const userId = useUserId()
   const { loading, error, data } = getUserInfos(userId)
 
   if (loading) {

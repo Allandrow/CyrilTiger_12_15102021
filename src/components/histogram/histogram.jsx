@@ -1,10 +1,10 @@
 import React from 'react'
 import { getUserActivity } from '../../hooks/getUserActivity'
-import { useUser } from '../../layout/userContext'
+import { useUserId } from '../../layout/userIdContext'
 import UserBarChart from '../userBarChart/userBarChart'
 
 const Histogram = () => {
-  const userId = useUser()
+  const userId = useUserId()
   const { loading, error, data } = getUserActivity(userId)
 
   if (loading) {

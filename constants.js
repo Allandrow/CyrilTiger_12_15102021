@@ -32,4 +32,11 @@ const dev = {
   }
 }
 
-export const config = import.meta.env.DEV ? dev : prod
+let config
+try {
+  config = import.meta.env.DEV ? dev : prod
+} catch {
+  config = dev
+}
+
+export { config }

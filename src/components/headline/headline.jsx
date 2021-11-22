@@ -1,9 +1,9 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
-import { useUser } from '../../layout/userContext'
+import { useUserId } from '../../layout/userIdContext'
 
 const Headline = () => {
-  const userId = useUser()
+  const userId = useUserId()
   const { loading, error, data } = getUserInfos(userId)
 
   const name = data ? data.userInfos.firstName : 'Visiteur'

@@ -1,10 +1,10 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
-import { useUser } from '../../layout/userContext'
+import { useUserId } from '../../layout/userIdContext'
 import KeyData from '../keyData/keyData'
 
 const KeyDatas = () => {
-  const userId = useUser()
+  const userId = useUserId()
   const { loading, error, data } = getUserInfos(userId)
 
   if (loading) {
