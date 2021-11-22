@@ -1,18 +1,18 @@
-import React from 'react'
-import Navigation from './navigation'
+// import React from 'react'
+// import Navigation from './navigation'
 
-export default {
-  component: Navigation,
-  title: 'SportSee/Header/Navigation',
-  decorators: [
-    (Story) => (
-      <div style={{ backgroundColor: '#020203' }}>
-        <Story />
-      </div>
-    )
-  ]
-}
+// export default {
+//   component: Navigation,
+//   title: 'SportSee/Header/Navigation',
+//   decorators: [
+//     (Story) => (
+//       <div style={{ backgroundColor: '#020203' }}>
+//         <Story />
+//       </div>
+//     )
+//   ]
+// }
 
-const Template = (args) => <Navigation {...args} />
+// const Template = (args) => <Navigation {...args} />
 
-export const Default = Template.bind({})
+// export const Default = Template.bind({})

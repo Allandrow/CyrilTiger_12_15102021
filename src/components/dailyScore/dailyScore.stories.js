@@ -1,13 +1,13 @@
-import React from 'react'
-import DailyScore from './dailyScore'
+// import React from 'react'
+// import DailyScore from './dailyScore'
 
-export default {
-  component: DailyScore,
-  title: 'sportsee/Dashboard/Charts/Daily-score'
-}
+// export default {
+//   component: DailyScore,
+//   title: 'sportsee/Dashboard/Charts/Daily-score'
+// }
 
-const Template = () => <DailyScore />
+// const Template = () => <DailyScore />
 
-export const Default = Template.bind({})
+// export const Default = Template.bind({})
 
-// TODO : complete story
+// // TODO : complete story

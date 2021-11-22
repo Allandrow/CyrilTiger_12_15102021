@@ -1,11 +1,11 @@
-import React from 'react'
-import Header from './header'
+// import React from 'react'
+// import Header from './header'
 
-export default {
-  component: Header,
-  title: 'SportSee/Header'
-}
+// export default {
+//   component: Header,
+//   title: 'SportSee/Header'
+// }
 
-const Template = () => <Header />
+// const Template = () => <Header />
 
-export const Default = Template.bind({})
+// export const Default = Template.bind({})
