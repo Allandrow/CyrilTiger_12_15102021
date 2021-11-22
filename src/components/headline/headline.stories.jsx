@@ -1,12 +1,11 @@
-// import React from 'react'
+import React from 'react'
+import Headline from './headline'
 
-// import { Headline } from './headline'
+export default {
+  title: 'Sportsee/Dashboard/Headline',
+  component: Headline
+}
 
-// export default {
-//   title: 'Sportsee/Dashboard/Headline',
-//   component: Headline
-// }
+const Template = () => <Headline />
 
-// const Template = () => <Headline />
-
-// export const Default = Template.bind({})
+export const Default = Template.bind({})
