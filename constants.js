@@ -15,8 +15,6 @@ const prod = {
   }
 }
 
-// TODO : utiliser une fonction qui renvoie une string
-
 const dev = {
   url: {
     API_USER_INFOS(userId) {
