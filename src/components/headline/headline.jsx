@@ -1,6 +1,7 @@
 import React from 'react'
 import { getUserInfos } from '../../hooks/getUserInfos'
 import { useUserId } from '../../layout/userIdContext'
+import UserGreeting from '../userGreeting/userGreeting'
 
 const Headline = () => {
   const userId = useUserId()
@@ -18,12 +19,7 @@ const Headline = () => {
 
   return (
     <div className="flex gap-6 flex-col xxl:gap-10">
-      <h2 className="text-5xl font-medium">
-        Bonjour <span className="text-primary">{name}</span>
-      </h2>
-      <p className="text-lg">
-        Félicitations ! Vous avez explosé vos objectifs hier 👏
-      </p>
+      <UserGreeting name={name} />
     </div>
   )
 }
