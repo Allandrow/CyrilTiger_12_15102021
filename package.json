@@ -8,7 +8,8 @@
     "prepare": "husky install",
     "lint": "eslint **/*.jsx --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "doc": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -34,7 +35,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.26.1",
     "husky": "^7.0.2",
-    "jsdoc": "^3.6.7",
+    "jsdoc": "~3.6.7",
     "postcss": "^8.3.9",
     "storybook-builder-vite": "^0.1.9",
     "tailwindcss": "^2.2.17",

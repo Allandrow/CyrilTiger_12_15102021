@@ -4,8 +4,8 @@ import { useUserId } from '../../layout/userIdContext'
 import UserBarChart from '../userBarChart/userBarChart'
 
 /**
- * TODO
- * @returns
+ * Wrapper component fetching user activity infos and injecting it in Bar Charts component
+ * @returns {ReactElement} React Component
  */
 const Histogram = () => {
   const userId = useUserId()

@@ -11,9 +11,9 @@ import {
 } from 'recharts'
 
 /**
- * Bar Chart Component TODO
- * @param {array} data daily activity
- * @returns
+ * Bar Chart Component
+ * @param {Array} data user daily activity
+ * @returns {ReactElement} ReactComponent with svg Charts
  */
 const UserBarChart = ({ data }) => {
   const activity = data.map((item, i) => {
@@ -84,8 +84,8 @@ const UserBarChart = ({ data }) => {
 
 /**
  * Return min/max values to setup domain of axis for weight and calories
- * @param {array} data user activity data
- * @returns {object} min and max for weights and calories data values
+ * @param {Array} data user activity data
+ * @returns {Object} min and max for weights and calories data values
  */
 const getDomains = (data) => {
   // weight data + scale
@@ -96,7 +96,6 @@ const getDomains = (data) => {
   const calories = data.map((item) => item.calories)
   const caloriesMin = Math.min(...calories)
   const caloriesMax = Math.max(...calories)
-
   // weight domain
   const weightRange = (weightMax - weightMin) * 2
   const weightAverage = Math.floor(
@@ -104,7 +103,6 @@ const getDomains = (data) => {
   )
   const weightDomainMin = weightAverage - weightRange / 2
   const weightDomainMax = weightAverage + weightRange / 2
-
   // calories domain
   const caloriesRange = (caloriesMax - caloriesMin) * 2
   const caloriesAverage = Math.floor(
@@ -120,9 +118,10 @@ const getDomains = (data) => {
 }
 
 /**
- * Custom Tooltip displayed on hover
+ * Custom Tooltip Component displayed on hover
  * @param {Array} payload data
  * @param {Boolean} active active state
+ * @returns {ReactElement|null} React Component if active, null otherwise
  */
 const CustomToolTip = ({ payload, active }) => {
   if (active) {

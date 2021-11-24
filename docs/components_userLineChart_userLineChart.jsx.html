@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/userLineChart/userLineChart.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/userLineChart/userLineChart.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import PropTypes from 'prop-types'
+import {
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis
+} from 'recharts'
+
+/**
+ * Line Chart Component
+ * @param {Array} data user average daily sessions infos
+ * @returns {ReactElement} ReactComponent with svg Charts
+ */
+const UserLineChart = ({ data }) => {
+  const sessions = [
+    { day: 0, sessionLength: 0, hideTooltip: true },
+    ...data,
+    { day: data.length + 1, sessionLength: 0, hideTooltip: true }
+  ]
+  const days = ['', 'L', 'M', 'M', 'J', 'V', 'S', 'D', '']
+  sessions.map((item, i) => (item.day = days[i]))
+
+  return (
+    &lt;ResponsiveContainer width="100%" height="100%">
+      &lt;LineChart data={sessions} margin={{ top: 10 }}>
+        &lt;XAxis
+          dataKey="day"
+          axisLine={false}
+          tick={customAxisTick}
+          tickLine={false}
+        />
+        &lt;YAxis hide={true} />
+        &lt;Tooltip
+          content={&lt;CustomToolTipLabel />}
+          allowEscapeViewBox={{ x: true }}
+          cursor={&lt;CustomCursor />}
+        />
+        &lt;Line
+          type="monotone"
+          dataKey="sessionLength"
+          stroke="white"
+          strokeWidth="2"
+          strokeOpacity="0.8"
+          isAnimationActive={false}
+          dot={false}
+          activeDot={customActiveDot}
+        />
+      &lt;/LineChart>
+    &lt;/ResponsiveContainer>
+  )
+}
+
+/**
+ * Custom tooltip on hover
+ * @param {object} payload data
+ * @param {boolean} active boolean to control if tooltip should be shown or not
+ */
+const CustomToolTipLabel = ({ payload, active }) => {
+  if (active &amp;&amp; !payload[0].payload.hideTooltip) {
+    return (
+      &lt;div className="bg-white p-2">
+        &lt;p className="font-medium text-xs">{payload[0].value} min&lt;/p>
+      &lt;/div>
+    )
+  }
+  return null
+}
+
+/**
+ * Custom dot appearing on the line on hover
+ * @param {number} cx x coordinate
+ * @param {number} cy y coordinate
+ * @param {object} payload data
+ */
+const customActiveDot = ({ cx, cy, payload }) => {
+  if (!payload.hideTooltip) {
+    return (
+      &lt;circle
+        cx={cx}
+        cy={cy}
+        r="4"
+        fill="white"
+        strokeWidth="10"
+        stroke="white"
+        strokeOpacity="0.4"
+      >&lt;/circle>
+    )
+  }
+
+  return null
+}
+
+/**
+ * Custom cursor on line chart hover React component, since Recharts doesn't allow function as argument for custom cursors
+ * @param {array} points coordinates of data point
+ * @param {number} height height of viewbox
+ */
+const CustomCursor = ({ points, height }) => {
+  return (
+    &lt;rect
+      x={points[0].x}
+      y="0"
+      height={height + 10}
+      width="100%"
+      fill="rgba(230, 0, 0, 0.4)"
+    >&lt;/rect>
+  )
+}
+
+/**
+ * Custom axis ticks
+ * @param {number} x x coordinate
+ * @param {number} y y coordinate
+ * @param {object} payload data
+ */
+const customAxisTick = ({ x, y, payload }) => {
+  return (
+    &lt;g transform={`translate(${x}, ${y + 5})`}>
+      &lt;text
+        fill="white"
+        textAnchor="middle"
+        fillOpacity="0.8"
+        x={0}
+        y={0}
+        dy={16}
+      >
+        {payload.value}
+      &lt;/text>
+    &lt;/g>
+  )
+}
+
+UserLineChart.propTypes = {
+  data: PropTypes.array.isRequired
+}
+
+CustomToolTipLabel.propTypes = {
+  payload: PropTypes.array,
+  active: PropTypes.bool
+}
+
+CustomCursor.propTypes = {
+  points: PropTypes.array,
+  height: PropTypes.number
+}
+
+export default UserLineChart
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AverageSession">AverageSession</a></li><li><a href="global.html#Charts">Charts</a></li><li><a href="global.html#customActiveDot">customActiveDot</a></li><li><a href="global.html#customAxisTick">customAxisTick</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#customTicks">customTicks</a></li><li><a href="global.html#CustomToolTip">CustomToolTip</a></li><li><a href="global.html#CustomToolTipLabel">CustomToolTipLabel</a></li><li><a href="global.html#DailyScore">DailyScore</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#getDomains">getDomains</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserInfos">getUserInfos</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Headline">Headline</a></li><li><a href="global.html#Histogram">Histogram</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#httpRequest">httpRequest</a></li><li><a href="global.html#KeyData">KeyData</a></li><li><a href="global.html#KeyDatas">KeyDatas</a></li><li><a href="global.html#MainLayout">MainLayout</a></li><li><a href="global.html#Navigation">Navigation</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#Profil">Profil</a></li><li><a href="global.html#Sidebar">Sidebar</a></li><li><a href="global.html#SidebarIcon">SidebarIcon</a></li><li><a href="global.html#UserBarChart">UserBarChart</a></li><li><a href="global.html#UserGreeting">UserGreeting</a></li><li><a href="global.html#UserIdProvider">UserIdProvider</a></li><li><a href="global.html#UserLineChart">UserLineChart</a></li><li><a href="global.html#UserRadarChart">UserRadarChart</a></li><li><a href="global.html#userRadialChart">userRadialChart</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Wed Nov 24 2021 16:27:47 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

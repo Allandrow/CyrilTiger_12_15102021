@@ -6,8 +6,8 @@ import SwimIcon from './swim.svg'
 import SidebarIcon from '../sidebarIcon/sidebarIcon'
 
 /**
- * TODO
- * @returns
+ * Sidebar component
+ * @returns {ReactElement} React Component
  */
 const Sidebar = () => {
   return (

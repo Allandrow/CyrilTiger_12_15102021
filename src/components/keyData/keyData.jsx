@@ -5,12 +5,12 @@ import glucidesIcon from './glucides.svg'
 import lipidesIcon from './lipides.svg'
 import PropTypes from 'prop-types'
 
-/** TODO
- * Create a key data card
+/**
+ * Key Data Card component
  * @param {number} value Numeric value of data
  * @param {string} type Type of data
+ * @returns {ReactElement} React Component
  */
-
 const KeyData = ({ value, type }) => {
   const { icon, text, background, unit } = dataTypes[type]
   const formatedValue = new Intl.NumberFormat('en-GB').format(value)

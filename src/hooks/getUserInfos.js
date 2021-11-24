@@ -2,7 +2,7 @@ import { httpRequest } from './httpRequest'
 import { config } from '../../constants'
 
 /**
- * Hook to fetch user informations TODO
+ * Hook to fetch user informations
  * @param {string} id user id
  * @returns {object} loading, error, data
  */

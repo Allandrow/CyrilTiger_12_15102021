@@ -4,8 +4,8 @@ import { useUserId } from '../../layout/userIdContext'
 import KeyData from '../keyData/keyData'
 
 /**
- * TODO
- * @returns
+ * Wrapper component fetching user infos and injecting it in multiple KeyData component
+ * @returns {ReactElement} React Component
  */
 const KeyDatas = () => {
   const userId = useUserId()

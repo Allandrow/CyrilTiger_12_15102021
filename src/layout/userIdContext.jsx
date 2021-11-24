@@ -5,9 +5,9 @@ import PropTypes from 'prop-types'
 const UserIdContext = React.createContext()
 
 /**
- * TODO
- * @param {*} param0
- * @returns
+ * Wrapper providing a Context for an ID found in the URL
+ * @param {ReactElement} children Children components
+ * @returns {ReactElement} React Component
  */
 const UserIdProvider = ({ children }) => {
   const { userId } = useParams()
@@ -23,5 +23,3 @@ UserIdProvider.propTypes = {
 }
 
 export default UserIdProvider
-
-// TODO : Naming

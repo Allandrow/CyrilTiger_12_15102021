@@ -4,8 +4,8 @@ import { useUserId } from '../../layout/userIdContext'
 import UserRadarChart from '../userRadarChart/userRadarChart'
 
 /**
- * TODO
- * @returns
+ * Wrapper component fetching user performance infos and injecting it in Radar Charts component
+ * @returns {ReactElement} React Component
  */
 const Performance = () => {
   const userId = useUserId()

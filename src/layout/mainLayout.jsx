@@ -3,9 +3,9 @@ import Header from '../components/header/header'
 import PropTypes from 'prop-types'
 
 /**
- * TODO
- * @param {*} param0
- * @returns
+ * Layout Template Wrapping Components
+ * @param {ReactElement} children React components
+ * @returns {ReactElement} React Component
  */
 const MainLayout = ({ children }) => {
   return (

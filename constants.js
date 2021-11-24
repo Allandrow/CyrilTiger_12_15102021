@@ -1,4 +1,4 @@
-// TODO :
+// setup of config file for urls used in fetch depending of environment
 const prod = {
   url: {
     API_USER_INFOS(userId) {

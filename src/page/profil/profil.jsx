@@ -4,8 +4,8 @@ import MainLayout from '../../layout/mainLayout'
 import Sidebar from '../../components/sidebar/sidebar'
 
 /**
- * TODO
- * @returns
+ * User Profile Page Template
+ * @returns {ReactElement} React Component
  */
 const Profil = () => {
   return (

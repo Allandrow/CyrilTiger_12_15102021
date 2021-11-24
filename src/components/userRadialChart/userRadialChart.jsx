@@ -8,8 +8,9 @@ import {
 } from 'recharts'
 
 /**
- * Radial Chart Component TODO
- * @param {number} score daily score
+ * Radial Chart Component
+ * @param {number} score user daily score
+ * @returns {ReactElement} ReactComponent with svg Charts
  */
 const userRadialChart = ({ score }) => {
   const data = [{ score: score }]

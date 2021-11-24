@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * TODO
- * @param {*} param0
- * @returns
+ * Component displaying user Name and message of objective completion success
+ * @param {String} name User name
+ * @returns {ReactElement} React Component
  */
 const UserGreeting = ({ name }) => {
   return (

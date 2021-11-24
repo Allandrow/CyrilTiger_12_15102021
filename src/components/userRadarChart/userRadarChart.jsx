@@ -10,9 +10,10 @@ import {
 import PropTypes from 'prop-types'
 
 /**
- * Radar Chart Component TODO
- * @param {Object} kind Categories
+ * Radar Chart Component
+ * @param {Object} kind Data categories
  * @param {Array} data Values for each category
+ * @returns {ReactElement} ReactComponent with svg Charts
  */
 const UserRadarChart = ({ kind, data }) => {
   const performance = data.map((item) => {
@@ -40,6 +41,11 @@ const UserRadarChart = ({ kind, data }) => {
   )
 }
 
+/**
+ * Custom Ticks to display on chart
+ * @param {Object} data Informations about tick
+ * @returns {HTMLElement} text svg element
+ */
 const customTicks = (data) => {
   return (
     <text

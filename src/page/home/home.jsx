@@ -4,8 +4,8 @@ import userList from '../../data/userList.js'
 import { Link } from 'react-router-dom'
 
 /**
- * TODO
- * @returns
+ * Home template
+ * @returns {ReactElement} React Component
  */
 const Home = () => {
   return (

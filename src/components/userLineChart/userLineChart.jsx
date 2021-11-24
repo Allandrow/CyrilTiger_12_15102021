@@ -10,8 +10,9 @@ import {
 } from 'recharts'
 
 /**
- * Line Chart Component TODO
- * @param {Array} data Objects array containing sessions length for each day
+ * Line Chart Component
+ * @param {Array} data user average daily sessions infos
+ * @returns {ReactElement} ReactComponent with svg Charts
  */
 const UserLineChart = ({ data }) => {
   const sessions = [

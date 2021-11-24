@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-/** TODO
+/**
+ * Icon used in Sidebar
  * @param {string} url icon href attribute
  * @param {string} altText alt attribute text
+ * @returns {ReactElement} React Component
  */
 const SidebarIcon = ({ url, altText }) => {
   return (
