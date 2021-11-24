@@ -10,7 +10,7 @@ import {
 } from 'recharts'
 
 /**
- * Line Chart Component
+ * Line Chart Component TODO
  * @param {Array} data Objects array containing sessions length for each day
  */
 const UserLineChart = ({ data }) => {

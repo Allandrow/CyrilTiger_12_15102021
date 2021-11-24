@@ -1,6 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * TODO
+ * @param {*} param0
+ * @returns
+ */
 const UserGreeting = ({ name }) => {
   return (
     <>

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 /**
- * Asynchronous function to fetch data with Axios + handling of state data
+ * Asynchronous function to fetch data with Axios + handling of state data TODO
  * @param {string} url url to fetch from
  * @returns {object} loading, error, data
  */

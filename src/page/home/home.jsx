@@ -3,6 +3,10 @@ import MainLayout from '../../layout/mainLayout'
 import userList from '../../data/userList.js'
 import { Link } from 'react-router-dom'
 
+/**
+ * TODO
+ * @returns
+ */
 const Home = () => {
   return (
     <MainLayout>

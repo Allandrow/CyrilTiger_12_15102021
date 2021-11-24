@@ -4,6 +4,10 @@ import Headline from '../headline/headline'
 import KeyDatas from '../keyDatas/keyDatas'
 import UserIdProvider from '../../layout/userIdContext'
 
+/**
+ * Wrapper component containing a context provider and the main content of the profile page
+ * @returns {ReactElement} React Component
+ */
 const Dashboard = () => {
   return (
     <UserIdProvider>

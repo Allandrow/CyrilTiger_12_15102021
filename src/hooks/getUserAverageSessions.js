@@ -2,7 +2,7 @@ import { httpRequest } from './httpRequest'
 import { config } from '../../constants'
 
 /**
- * Hook to fetch user daily sessions
+ * Hook to fetch user daily sessions TODO
  * @param {string} id user id
  * @returns {object} loading, error, data
  */

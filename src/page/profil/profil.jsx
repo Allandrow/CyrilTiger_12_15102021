@@ -3,6 +3,10 @@ import Dashboard from '../../components/dashboard/dashboard'
 import MainLayout from '../../layout/mainLayout'
 import Sidebar from '../../components/sidebar/sidebar'
 
+/**
+ * TODO
+ * @returns
+ */
 const Profil = () => {
   return (
     <MainLayout>

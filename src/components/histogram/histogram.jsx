@@ -3,6 +3,10 @@ import { getUserActivity } from '../../hooks/getUserActivity'
 import { useUserId } from '../../layout/userIdContext'
 import UserBarChart from '../userBarChart/userBarChart'
 
+/**
+ * TODO
+ * @returns
+ */
 const Histogram = () => {
   const userId = useUserId()
   const { loading, error, data } = getUserActivity(userId)

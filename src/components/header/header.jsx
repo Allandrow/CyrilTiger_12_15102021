@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import Navigation from '../navigation/navigation'
 import logo from './logo.svg'
 
+/**
+ * React Component displaying the header of the app
+ * @returns {ReactElement} React Component
+ */
 const Header = () => {
   return (
     <header className="bg-dark flex justify-between gap-36 items-center p-5 shadow-lg">

@@ -5,7 +5,7 @@ import glucidesIcon from './glucides.svg'
 import lipidesIcon from './lipides.svg'
 import PropTypes from 'prop-types'
 
-/**
+/** TODO
  * Create a key data card
  * @param {number} value Numeric value of data
  * @param {string} type Type of data

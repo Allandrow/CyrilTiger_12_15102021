@@ -3,6 +3,10 @@ import { getUserInfos } from '../../hooks/getUserInfos'
 import UserRadialChart from '../userRadialChart/userRadialChart'
 import { useUserId } from '../../layout/userIdContext'
 
+/**
+ * Wrapper component fetching user infos and injecting it in Radial Charts component
+ * @returns {ReactElement} React Component
+ */
 const DailyScore = () => {
   const userId = useUserId()
   const { loading, error, data } = getUserInfos(userId)

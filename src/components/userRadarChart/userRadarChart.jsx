@@ -10,7 +10,7 @@ import {
 import PropTypes from 'prop-types'
 
 /**
- * Radar Chart Component
+ * Radar Chart Component TODO
  * @param {Object} kind Categories
  * @param {Array} data Values for each category
  */

@@ -8,7 +8,7 @@ import {
 } from 'recharts'
 
 /**
- * Radial Chart Component
+ * Radial Chart Component TODO
  * @param {number} score daily score
  */
 const userRadialChart = ({ score }) => {

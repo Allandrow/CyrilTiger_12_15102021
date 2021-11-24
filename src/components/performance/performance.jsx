@@ -3,6 +3,10 @@ import { getUserPerformance } from '../../hooks/getUserPerformance'
 import { useUserId } from '../../layout/userIdContext'
 import UserRadarChart from '../userRadarChart/userRadarChart'
 
+/**
+ * TODO
+ * @returns
+ */
 const Performance = () => {
   const userId = useUserId()
   const { loading, error, data } = getUserPerformance(userId)

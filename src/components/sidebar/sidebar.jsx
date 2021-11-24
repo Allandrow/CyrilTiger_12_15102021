@@ -5,6 +5,10 @@ import FitIcon from './fit.svg'
 import SwimIcon from './swim.svg'
 import SidebarIcon from '../sidebarIcon/sidebarIcon'
 
+/**
+ * TODO
+ * @returns
+ */
 const Sidebar = () => {
   return (
     <aside className="bg-dark order-2 col-span-2 grid grid-cols-4 py-8 gap-y-8 w-full xl:order-1 xl:place-items-center xl:pb-14 xl:px-4">

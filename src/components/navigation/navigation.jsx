@@ -1,6 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+/**
+ * TODO
+ * @returns
+ */
 const Navigation = () => {
   return (
     <nav className="text-white text-2xl font-medium flex-1">

@@ -4,9 +4,16 @@ import PropTypes from 'prop-types'
 
 const UserIdContext = React.createContext()
 
+/**
+ * TODO
+ * @param {*} param0
+ * @returns
+ */
 const UserIdProvider = ({ children }) => {
   const { userId } = useParams()
-  return <UserIdContext.Provider value={userId}>{children}</UserIdContext.Provider>
+  return (
+    <UserIdContext.Provider value={userId}>{children}</UserIdContext.Provider>
+  )
 }
 
 export const useUserId = () => useContext(UserIdContext)

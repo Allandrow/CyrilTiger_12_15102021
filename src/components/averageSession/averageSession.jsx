@@ -3,6 +3,10 @@ import { getUserAverageSessions } from '../../hooks/getUserAverageSessions'
 import { useUserId } from '../../layout/userIdContext'
 import UserLineChart from '../userLineChart/userLineChart'
 
+/**
+ * Wrapper component fetching user average sessions infos and injecting it in Line Charts component
+ * @returns { ReactElement } React Component
+ */
 const AverageSession = () => {
   const userId = useUserId()
   const { loading, error, data } = getUserAverageSessions(userId)

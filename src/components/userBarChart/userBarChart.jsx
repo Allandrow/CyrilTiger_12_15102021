@@ -11,7 +11,7 @@ import {
 } from 'recharts'
 
 /**
- * Bar Chart Component
+ * Bar Chart Component TODO
  * @param {array} data daily activity
  * @returns
  */
@@ -23,9 +23,8 @@ const UserBarChart = ({ data }) => {
       ...rest
     }
   })
-  const { weightDomainMin, weightDomainMax, calorieDomainMax } = getDomains(
-    activity
-  )
+  const { weightDomainMin, weightDomainMax, calorieDomainMax } =
+    getDomains(activity)
 
   return (
     <ResponsiveContainer height="100%" width="100%">
