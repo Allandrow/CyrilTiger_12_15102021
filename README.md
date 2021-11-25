@@ -6,28 +6,35 @@ This is Project #12 of the front-end developer cursus from [Openclassrooms](http
 ## Installation
 
 1. Download or clone this repository
-2. Install Dependancies :
+2. Install Dependencies :
+
 ```sh
 # NPM
 npm install
 # Yarn
 yarn install
 ```
+
 3. Start a Vite dev server (port 5000)
+
 ```sh
 # NPM
 npm run dev
 # Yarn
 yarn dev
 ```
+
 4. Build a production version
+
 ```sh
 # NPM
 npm run build
 # Yarn
 yarn build
 ```
-5. Check the production build on a Vite server (port 5000)
+
+5. Start the production build on a Vite server (port 5000)
+
 ```sh
 # NPM
 npm run serve
