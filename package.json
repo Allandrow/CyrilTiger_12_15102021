@@ -7,8 +7,6 @@
     "serve": "vite preview",
     "prepare": "husky install",
     "lint": "eslint **/*.jsx --fix",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "doc": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
@@ -21,10 +19,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
-    "@storybook/addon-actions": "^6.4.0-rc.6",
-    "@storybook/addon-essentials": "^6.4.0-rc.6",
-    "@storybook/addon-links": "^6.4.0-rc.6",
-    "@storybook/react": "^6.4.0-rc.6",
     "@vitejs/plugin-react": "^1.0.0",
     "autoprefixer": "^10.3.7",
     "babel-loader": "^8.2.2",
@@ -37,7 +31,6 @@
     "husky": "^7.0.2",
     "jsdoc": "~3.6.7",
     "postcss": "^8.3.9",
-    "storybook-builder-vite": "^0.1.9",
     "tailwindcss": "^2.2.17",
     "vite": "^2.6.4"
   }

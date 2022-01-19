@@ -3,8 +3,7 @@
   "source": {
     "include": ["src"],
     "exclude": ["dist", "node_modules"],
-    "includePattern": ".+\\.js(doc|x)?$",
-    "excludePattern": ".+\\.stories.js?$"
+    "includePattern": ".+\\.js(doc|x)?$"
   },
   "sourceType": "module",
   "tags": {
