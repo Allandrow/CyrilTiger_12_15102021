@@ -11,7 +11,7 @@ import UserIdProvider from '../../layout/userIdContext'
 const Dashboard = () => {
   return (
     <UserIdProvider>
-      <section className="flex p-8 pt-32 xl:pl-32 flex-col flex-1 order-1 col-span-2">
+      <section className="flex p-8 xl:pt-16 xl:pl-16 xxl:pt-32 xxl:pl-32 flex-col flex-1 order-1 col-span-2 xxl:h-section">
         <Headline />
         <div className="mt-8 flex-1 grid gap-8 grid-cols-4 xxl:mt-16 xxl:grid-flow-col">
           <Charts />

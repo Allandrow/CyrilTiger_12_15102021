@@ -14,7 +14,7 @@ module.exports = {
       },
       textColor: { primary: '#FF0101', secondary: '#282D30' },
       width: { icon: '60px' },
-      height: { icon: '60px' }
+      height: { icon: '60px', section: '55rem' }
     },
     screens: {
       xl: '1280px',
