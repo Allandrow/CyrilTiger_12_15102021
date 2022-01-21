@@ -19,9 +19,8 @@ const KeyDatas = () => {
     return <div className="grid col-span-4 order-1 grid-cols-4">{error}</div>
   }
 
-  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = data
-    ? data.keyData
-    : NaN
+  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
+    data.keyData
 
   return (
     <div className="grid col-span-4 order-1 grid-cols-4 gap-8 xxl:order-2 xxl:col-span-2 xxl:flex xxl:flex-col xxl:justify-between">
