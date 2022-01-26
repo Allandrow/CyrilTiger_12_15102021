@@ -25,7 +25,7 @@ const UserRadarChart = ({ kind, data }) => {
 
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <RadarChart data={performance} margin={{ left: 35, right: 35 }}>
+      <RadarChart data={performance} margin={{ left: 40, right: 40 }}>
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" tick={customTicks} />
         <PolarRadiusAxis angle={30} domain={[0, 'auto']} tick={false} />
@@ -62,8 +62,7 @@ const customTicks = (data) => {
       <tspan
         x={data.payload.coordinate.x}
         dy={5}
-        fontSize="0.75rem"
-        className="capitalize"
+        className="capitalize text-xxs xxl:text-xs"
       >
         {data.payload.value}
       </tspan>

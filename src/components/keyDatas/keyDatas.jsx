@@ -1,6 +1,6 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { getUserInfos } from '../../hooks/getUserInfos'
-import { useUserId } from '../../layout/userIdContext'
 import KeyData from '../keyData/keyData'
 
 /**
@@ -8,22 +8,30 @@ import KeyData from '../keyData/keyData'
  * @returns {ReactElement} React Component
  */
 const KeyDatas = () => {
-  const userId = useUserId()
+  const { userId } = useParams()
   const { loading, error, data } = getUserInfos(userId)
 
   if (loading) {
-    return <div className="grid col-span-4 order-1 grid-cols-4">Loading</div>
+    return (
+      <div className="col-span-2 flex flex-col xl:justify-between gap-8">
+        Loading
+      </div>
+    )
   }
 
   if (error) {
-    return <div className="grid col-span-4 order-1 grid-cols-4">{error}</div>
+    return (
+      <div className="col-span-2 flex flex-col xl:justify-between gap-8">
+        Something went wrong while getting your key datas !
+      </div>
+    )
   }
 
   const { calorieCount, proteinCount, carbohydrateCount, lipidCount } =
     data.keyData
 
   return (
-    <div className="grid col-span-4 order-1 grid-cols-4 gap-8 xxl:order-2 xxl:col-span-2 xxl:flex xxl:flex-col xxl:justify-between">
+    <div className="col-span-2 flex flex-col xl:justify-between gap-8">
       <KeyData value={calorieCount} type="calorieCount" />
       <KeyData value={proteinCount} type="proteinCount" />
       <KeyData value={carbohydrateCount} type="carbohydrateCount" />

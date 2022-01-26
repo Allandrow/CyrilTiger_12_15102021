@@ -1,24 +1,53 @@
 import React from 'react'
 import Charts from '../charts/charts'
-import Headline from '../headline/headline'
 import KeyDatas from '../keyDatas/keyDatas'
-import UserIdProvider from '../../layout/userIdContext'
+import { useParams } from 'react-router-dom'
+import { getUserInfos } from '../../hooks/getUserInfos'
 
 /**
  * Wrapper component containing a context provider and the main content of the profile page
  * @returns {ReactElement} React Component
  */
 const Dashboard = () => {
-  return (
-    <UserIdProvider>
-      <section className="flex p-8 xl:pt-16 xl:pl-16 xxl:pt-32 xxl:pl-32 flex-col flex-1 order-1 col-span-2 xxl:h-section">
-        <Headline />
-        <div className="mt-8 flex-1 grid gap-8 grid-cols-4 xxl:mt-16 xxl:grid-flow-col">
-          <Charts />
-          <KeyDatas />
-        </div>
+  const { userId } = useParams()
+  const { loading, error, data } = getUserInfos(userId)
+
+  if (loading) {
+    return (
+      <section className="p-8 xl:p-16 xxl:p-32 xl:gap-16 flex-1">
+        Loading
       </section>
-    </UserIdProvider>
+    )
+  }
+
+  if (error) {
+    return (
+      <section className="p-8 xl:p-16 xxl:p-32 xl:gap-16 flex-1">
+        <h2 className="text-5xl font-medium">
+          Something went wrong while fetching your informations. Please try
+          again at an ulterior date.
+        </h2>
+      </section>
+    )
+  }
+
+  return (
+    <section className="p-8 xl:p-16 xxl:p-32 xl:gap-16 flex-1">
+      <header className="mb-8 xxl:mb-16">
+        <h2 className="text-5xl font-medium">
+          Bonjour{' '}
+          <span className="text-primary">{data.userInfos.firstName}</span>
+        </h2>
+        <br />
+        <p className="text-lg">
+          Félicitations ! Vous avez explosé vos objectifs hier 👏
+        </p>
+      </header>
+      <div className="grid grid-cols-8 gap-4 xl:gap-8">
+        <Charts />
+        <KeyDatas />
+      </div>
+    </section>
   )
 }
 

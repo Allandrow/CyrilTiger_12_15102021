@@ -14,7 +14,8 @@ module.exports = {
       },
       textColor: { primary: '#FF0101', secondary: '#282D30' },
       width: { icon: '60px' },
-      height: { icon: '60px', section: '55rem' }
+      height: { icon: '60px' },
+      fontSize: { xxs: '10px' }
     },
     screens: {
       xl: '1280px',
@@ -31,6 +32,9 @@ module.exports = {
           '.writing-vert': {
             writingMode: 'vertical-rl',
             textOrientation: 'mixed'
+          },
+          '.dashboard-height': {
+            minHeight: 'calc(100vh - 6rem)'
           }
         },
         ['responsive']

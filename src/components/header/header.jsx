@@ -9,7 +9,7 @@ import logo from './logo.svg'
  */
 const Header = () => {
   return (
-    <header className="bg-dark flex justify-between gap-36 items-center p-5 shadow-lg">
+    <header className="bg-dark flex gap-36 items-center shadow-lg h-24 px-5">
       <h1>
         <Link to="/">
           <img src={logo} alt="SportSee" />

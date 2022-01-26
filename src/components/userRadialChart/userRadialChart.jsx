@@ -17,8 +17,8 @@ const userRadialChart = ({ score }) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <RadialBarChart
-        innerRadius={75}
-        barSize={10}
+        innerRadius={70}
+        outerRadius={80}
         startAngle={90}
         endAngle={90 + 360}
         data={data}
@@ -41,7 +41,13 @@ const userRadialChart = ({ score }) => {
             objectif
           </tspan>
         </text>
-        <RadialBar clockWise dataKey="score" cornerRadius={10} fill="#FF0000" />
+        <RadialBar
+          clockWise
+          dataKey="score"
+          cornerRadius={10}
+          fill="#FF0000"
+          isAnimationActive={false}
+        />
       </RadialBarChart>
     </ResponsiveContainer>
   )

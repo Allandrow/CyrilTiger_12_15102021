@@ -10,9 +10,9 @@ import AverageSession from '../averageSession/averageSession'
  */
 const Charts = () => {
   return (
-    <div className="grid order-2 gap-8 col-span-4 xxl:col-span-6">
+    <div className="grid col-span-6 gap-4 xl:gap-8">
       <Histogram />
-      <div className="grid gap-8 grid-cols-2 xxl:grid-cols-3">
+      <div className="grid gap-4 xl:gap-8 grid-cols-3 col-span-6">
         <AverageSession />
         <Performance />
         <DailyScore />

@@ -16,14 +16,14 @@ const KeyData = ({ value, type }) => {
   const formatedValue = new Intl.NumberFormat('en-GB').format(value)
 
   return (
-    <div className="bg-gray-50 p-4 rounded-md flex gap-8 xxl:p-8">
+    <div className="bg-gray-50 p-4 xl:p-8 rounded-md flex gap-2 xl:gap-4 max-w-xs">
       <div
-        className={`flex justify-center items-center w-icon h-icon rounded-md bg-${background}-100`}
+        className={`flex justify-center items-center w-12 h-12 xl:w-icon xl:h-icon rounded-md bg-${background}-100`}
       >
         <img src={icon} alt={text} />
       </div>
-      <div className="flex flex-col justify-center gap-2">
-        <strong className="font-bold text-xl">{`${formatedValue}${unit}`}</strong>
+      <div className="flex flex-col justify-center gap-1">
+        <strong className="font-bold text-medium xl:text-xl">{`${formatedValue}${unit}`}</strong>
         <span className="text-gray-500 text-sm">{text}</span>
       </div>
     </div>

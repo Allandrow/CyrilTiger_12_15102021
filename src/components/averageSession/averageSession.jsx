@@ -1,6 +1,6 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { getUserAverageSessions } from '../../hooks/getUserAverageSessions'
-import { useUserId } from '../../layout/userIdContext'
 import UserLineChart from '../userLineChart/userLineChart'
 
 /**
@@ -8,19 +8,27 @@ import UserLineChart from '../userLineChart/userLineChart'
  * @returns { ReactElement } React Component
  */
 const AverageSession = () => {
-  const userId = useUserId()
+  const { userId } = useParams()
   const { loading, error, data } = getUserAverageSessions(userId)
 
   if (loading) {
-    return <div className="flex-1 bg-primary rounded-md h-72">Loading</div>
+    return (
+      <div className="bg-primary rounded-md grid pt-4 pb-4 col-span-1 h-72">
+        Loading
+      </div>
+    )
   }
 
   if (error) {
-    return <div className="flex-1 bg-primary rounded-md h-72">{error}</div>
+    return (
+      <div className="bg-primary rounded-md grid pt-4 pb-4 col-span-1 h-72">
+        Something went wrong while getting your performances !
+      </div>
+    )
   }
 
   return (
-    <div className="flex-1 bg-primary rounded-md flex flex-col pt-4 pb-4 col-span-2 h-72 xxl:col-span-1">
+    <div className="bg-primary rounded-md grid pt-4 pb-4 col-span-1 h-72">
       <h3 className="text-white opacity-80 mt-4 ml-8 text-base font-medium">
         Durée moyenne des <br className="hidden xxl:inline" /> sessions
       </h3>

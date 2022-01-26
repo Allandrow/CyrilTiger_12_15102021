@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
  */
 const MainLayout = ({ children }) => {
   return (
-    <div className="font-display flex flex-col h-screen">
+    <div className="font-display flex flex-col">
       <Header />
       {children}
     </div>

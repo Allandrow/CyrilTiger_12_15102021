@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
  */
 const SidebarIcon = ({ url, altText }) => {
   return (
-    <li className="h-16 w-16 bg-white rounded-md flex justify-center items-center">
+    <li className="h-16 w-16 bg-white rounded-md grid place-items-center">
       <img src={url} alt={altText} className="" />
     </li>
   )

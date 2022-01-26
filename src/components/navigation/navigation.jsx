@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
  */
 const Navigation = () => {
   return (
-    <nav className="text-white text-2xl font-medium flex-1">
+    <nav className="text-white text-2xl font-medium flex-1 max-w-7xl">
       <ul className="flex justify-between">
         <li>
           <Link to="/">Accueil</Link>

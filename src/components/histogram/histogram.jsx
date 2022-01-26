@@ -1,6 +1,6 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { getUserActivity } from '../../hooks/getUserActivity'
-import { useUserId } from '../../layout/userIdContext'
 import UserBarChart from '../userBarChart/userBarChart'
 
 /**
@@ -8,19 +8,25 @@ import UserBarChart from '../userBarChart/userBarChart'
  * @returns {ReactElement} React Component
  */
 const Histogram = () => {
-  const userId = useUserId()
+  const { userId } = useParams()
   const { loading, error, data } = getUserActivity(userId)
 
   if (loading) {
-    return <div className="bg-gray-50 rounded-md p-8 h-80">Loading</div>
+    return (
+      <div className="bg-gray-50 rounded-md p-8 col-span-6 h-80">Loading</div>
+    )
   }
 
   if (error) {
-    return <div className="bg-gray-50 rounded-md p-8 h-80">{error}</div>
+    return (
+      <div className="bg-gray-50 rounded-md p-8 col-span-6 h-80">
+        Something went wrong while getting your history !
+      </div>
+    )
   }
 
   return (
-    <div className="bg-gray-50 rounded-md p-8 h-80">
+    <div className="bg-gray-50 rounded-md p-8 col-span-6 h-80">
       <div className="flex justify-between">
         <h3 className="font-medium">Activité quotidienne</h3>
         <div className="flex gap-4 font-medium text-sm text-gray-500">
